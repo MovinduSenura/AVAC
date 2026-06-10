@@ -5,7 +5,7 @@ function AboutUsFirstPart() {
     <section className="bg-white px-4 pb-[22px] pt-[26px] sm:px-6 sm:pb-[26px] sm:pt-[30px] lg:px-8 lg:pb-[30px] lg:pt-[34px]">
       <div className="mx-auto max-w-[1450px] rounded-[22px] bg-[color:var(--avac-gold)] px-[26px] py-[36px] sm:px-[48px] sm:py-[44px] lg:min-h-[180px] lg:rounded-[26px] lg:px-[112px] lg:py-[82px]">
         <div className="flex h-full flex-col justify-center">
-          <h1 className="text-[36px] font-bold leading-[1.06] text-white sm:text-[44px] lg:text-[34px]">
+          <h1 className="text-[34px] font-bold leading-[1.06] text-white sm:text-[38px] lg:text-[34px]">
             About Us
           </h1>
 

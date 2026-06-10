@@ -47,7 +47,7 @@ function ContactUsSecondPart() {
           />
         </div>
 
-          <h2 className="mt-[14px] text-[34px] font-bold leading-[1.06] text-[color:var(--avac-gold)] sm:text-[42px] lg:text-[36px]">
+          <h2 className="mt-[14px] text-[34px] font-bold leading-[1.06] text-[color:var(--avac-gold)] sm:text-[38px] lg:text-[34px]">
             You Will Grow, You Will Succeed.
             <span className="block">We Promise That</span>
           </h2>

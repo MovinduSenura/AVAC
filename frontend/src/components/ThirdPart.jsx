@@ -87,7 +87,7 @@ function ThirdPart() {
               <img
                 src="/smallGoldArrow.png"
                 alt=""
-                className="block h-[10px] w-[12px] object-contain"
+                className="mt-[2px] block h-[10px] w-[12px] object-contain"
               />
             </span>
           </button>
