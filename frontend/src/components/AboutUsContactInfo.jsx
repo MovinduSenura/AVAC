@@ -43,7 +43,7 @@ function InputShell({ children, icon, textarea = false }) {
   );
 }
 
-function FourthPart() {
+function AboutUsContactInfo() {
   const [isJobOpen, setIsJobOpen] = useState(false);
   const [isCountryOpen, setIsCountryOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState("");
@@ -123,7 +123,7 @@ function FourthPart() {
               </InputShell>
             </label>
 
-            <label className="block">
+            {/* <label className="block">
               <FieldLabel>Select a Job</FieldLabel>
               <div ref={jobDropdownRef} className="relative">
                 <button
@@ -221,7 +221,7 @@ function FourthPart() {
                   </div>
                 ) : null}
               </div>
-            </label>
+            </label> */}
           </div>
 
           <label className="mt-[14px] block">
@@ -258,4 +258,4 @@ function FourthPart() {
   );
 }
 
-export default FourthPart;
+export default AboutUsContactInfo;
