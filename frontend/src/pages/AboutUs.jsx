@@ -1,5 +1,7 @@
 import NavBar from "../components/NavBar";
 import AboutUsFirstPart from "../components/AboutUsFirstPart";
+import AboutUsSecondPart from "../components/AboutUsSecondPart";
+import AboutUsThirdPart from "../components/AboutUsThirdPart";
 import CountryStrip from "../components/CountryStrip";
 import AboutUsContactInfo from "../components/AboutUsContactInfo";
 import SeventhPart from "../components/SeventhPart";
@@ -12,6 +14,15 @@ function AboutUs() {
       <section>
         <AboutUsFirstPart />
       </section>
+
+      <section>
+        <AboutUsSecondPart />
+      </section>
+
+      <section>
+        <AboutUsThirdPart />
+      </section>
+
       <section className="group mb-10 bg-white px-4 py-[15px] text-black transition-colors duration-300 hover:bg-[color:var(--avac-gold)] sm:px-6 sm:py-[17px] lg:px-8">
         <CountryStrip />
       </section>
