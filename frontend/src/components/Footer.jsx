@@ -9,9 +9,9 @@ const socialLinks = [
 
 function Footer() {
   return (
-    <footer className="bg-black px-8 pb-[24px] pt-[10px]">
-      <div className="mx-auto max-w-[1000px] pb-[38px] pt-[32px]">
-        <div className="grid gap-[36px] border-b border-white/10 pb-[56px] grid-cols-[1.2fr_0.72fr_0.72fr_1.1fr]">
+    <footer className="bg-black px-4 pb-[24px] pt-[10px] sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1000px] pb-[32px] pt-[28px] sm:pb-[36px] sm:pt-[32px] lg:pb-[38px]">
+        <div className="grid gap-[32px] border-b border-white/10 pb-[40px] sm:grid-cols-2 sm:gap-[36px] sm:pb-[48px] lg:grid-cols-[1.2fr_0.72fr_0.72fr_1.1fr] lg:pb-[56px]">
           <div>
             <div className="flex items-center gap-[12px]">
               <img
@@ -114,9 +114,9 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-[22px] flex flex-row gap-[12px] text-[12px] text-white/45 items-center justify-between">
+        <div className="mt-[22px] flex flex-col items-center justify-between gap-[12px] text-center text-[12px] text-white/45 lg:flex-row lg:text-left">
           <p>&copy; AVA Consultants 2026 | All Rights Reserved</p>
-          <div className="flex flex-wrap gap-[22px]">
+          <div className="flex flex-wrap justify-center gap-[18px] sm:gap-[22px] lg:justify-start">
             <span>Terms & Conditions</span>
             <span>Privacy Policy</span>
             <span>Contact Us</span>

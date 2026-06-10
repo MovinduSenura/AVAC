@@ -53,17 +53,16 @@ function SecondPart() {
 
   return (
     <div className="mx-auto w-full max-w-[1000px]">
-        {/* ABOUT US */}
-      <div className="grid items-center grid-cols-[525px_1fr]">
+      <div className="grid gap-[28px] lg:grid-cols-[525px_1fr] lg:items-center">
         <div className="overflow-hidden">
           <img
             src="/abtusimage.png"
             alt="Visa stamping, skyline and currency collage"
-            className="h-[500px] object-cover"
+            className="h-[280px] w-full rounded-[28px] object-cover sm:h-[360px] lg:h-[500px] lg:rounded-none"
           />
         </div>
 
-        <article>
+        <article className="px-[6px] lg:px-0">
           <div className="flex items-center gap-[10px]">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
               About Us
@@ -74,7 +73,7 @@ function SecondPart() {
               className="h-[12px] w-[18px] object-contain"
             />
           </div>
-          <h2 className="mt-[10px] max-w-[420px] text-[38px] font-bold leading-[1.06] text-[#16171A]">
+          <h2 className="mt-[10px] max-w-[420px] text-[34px] font-bold leading-[1.06] text-[#16171A] sm:text-[38px]">
             We Provide The Best
             <span className="block text-[color:var(--avac-gold)]">
               Service For Consulting
@@ -82,7 +81,8 @@ function SecondPart() {
           </h2>
           <p className="mt-[14px] max-w-[470px] text-[13px] leading-[1.8] text-[#000000]">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            <br />Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+            <br />Sed ut perspiciatis unde omnis iste natus error sit
+            voluptatem.
           </p>
 
           <div className="mt-[22px] grid gap-x-[26px] gap-y-[18px] text-[13px] leading-[1.75] text-[#000000] sm:grid-cols-2">
@@ -119,7 +119,7 @@ function SecondPart() {
 
           <button
             type="button"
-            className="mt-[30px] inline-flex h-[50px] items-center justify-center gap-[10px] rounded-full bg-[color:var(--avac-gold)] px-[28px] text-[11px] font-semibold text-white cursor-pointer"
+            className="mt-[30px] inline-flex h-[50px] cursor-pointer items-center justify-center gap-[10px] rounded-full bg-[color:var(--avac-gold)] px-[28px] text-[11px] font-semibold text-white"
           >
             <span className="leading-none">Read More</span>
             <span className="relative top-[0px] flex h-[14px] w-[14px] items-center justify-center">
@@ -133,9 +133,8 @@ function SecondPart() {
         </article>
       </div>
 
-         {/* OUR SERVICES */}
-      <div className="mt-[20px] grid grid-cols-[50%_50.5%] rounded-[40px] bg-[#F1F5EB]">
-        <div className="px-[50px] pb-[54px] pt-[62px] text-black">
+      <div className="mt-[20px] grid overflow-hidden rounded-[28px] bg-[#F1F5EB] lg:grid-cols-[50%_50.5%] lg:rounded-[40px]">
+        <div className="px-[24px] pb-[34px] pt-[38px] text-black sm:px-[36px] sm:pb-[44px] sm:pt-[48px] lg:px-[50px] lg:pb-[54px] lg:pt-[62px]">
           <div className="flex items-center gap-[10px]">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
               Our Services
@@ -147,7 +146,7 @@ function SecondPart() {
             />
           </div>
 
-          <h3 className="mt-[18px] max-w-[420px] text-[38px] font-bold leading-[1.06] text-[#16171A]">
+          <h3 className="mt-[18px] max-w-[420px] text-[34px] font-bold leading-[1.06] text-[#16171A] sm:text-[38px]">
             Turning Dreams
             <span className="block">Into Destinations</span>
             <span className="block text-[color:var(--avac-gold)]">
@@ -181,27 +180,26 @@ function SecondPart() {
           <img
             src="/engineer.png"
             alt="Engineer standing with folded arms"
-            className="h-full w-full rounded-[40px]"
+            className="h-[280px] w-full object-cover sm:h-[360px] lg:h-full lg:rounded-[40px]"
           />
         </div>
       </div>
 
-      {/*  Are you ready to fly? */}
-      <div className="mt-[100px] rounded-[12px] bg-[color:var(--avac-gold)] text-white flex min-h-[330px] items-center justify-between px-[50px]">
+      <div className="mt-[70px] flex flex-col gap-[28px] rounded-[24px] bg-[color:var(--avac-gold)] px-[20px] py-[28px] text-white sm:px-[30px] sm:py-[36px] lg:mt-[100px] lg:min-h-[330px] lg:flex-row lg:items-center lg:justify-between lg:px-[50px]">
         <div className="relative max-w-[560px]">
           <img
             src="/map.png"
             alt=""
-            className="pointer-events-none absolute left-[30px] top-[40px] w-[460px] opacity-[1] mix-blend-screen"
+            className="pointer-events-none absolute left-[30px] top-[40px] hidden w-[460px] opacity-[1] mix-blend-screen lg:block"
           />
           <div className="relative z-10">
-            <h3 className="text-[38px] font-bold leading-[1.06]">
+            <h3 className="text-[32px] font-bold leading-[1.06] sm:text-[38px]">
               Are you ready to fly?
             </h3>
-            <p className="mt-[10px] text-[14px] font-bold text-[#000000]">
-               Preferred Job & Countries in Europe (Choose 2)
+            <p className="mt-[10px] text-[13px] font-bold text-[#000000] sm:text-[14px]">
+              Preferred Job & Countries in Europe (Choose 2)
             </p>
-            <div className="mt-[5px] max-w-[620px] text-[14px] leading-[1.9] text-[#000000]">
+            <div className="mt-[5px] max-w-[620px] text-[13px] leading-[1.9] text-[#000000] sm:text-[14px]">
               <div className="flex flex-wrap gap-x-[22px]">
                 {countryGroups.slice(0, 4).map((country) => (
                   <span key={country}>{country}</span>
@@ -214,28 +212,38 @@ function SecondPart() {
               </div>
             </div>
 
-            <form className="relative z-10 mt-[16px] grid w-[640px] max-w-full grid-cols-[250px_250px] gap-y-[20px] gap-x-[0px]">
-              <div ref={leftCountryRef} className="relative">
+            <form className="relative z-10 mt-[16px] grid max-w-full gap-[14px] sm:grid-cols-2 sm:gap-[18px] lg:w-[640px] lg:grid-cols-[250px_250px] lg:gap-x-[0px] lg:gap-y-[20px]">
+              <div ref={leftCountryRef} className="relative w-full sm:max-w-[230px]">
                 <button
                   type="button"
                   onClick={() => {
                     setIsLeftCountryOpen((open) => !open);
                     setIsRightCountryOpen(false);
                   }}
-                  className="flex h-[45px] w-[230px] items-center justify-between rounded-full border border-[#E3DBD8] bg-white px-[14px] text-left text-[11px] outline-none cursor-pointer"
+                  className="flex h-[45px] w-full cursor-pointer items-center justify-between rounded-full border border-[#E3DBD8] bg-white px-[14px] text-left text-[11px] outline-none"
                 >
-                  <span className={isLeftCountryOpen ? "text-[#BABABA]" : selectedLeftCountry ? "text-[#000000]" : "text-[#BABABA]"}>
-                    {isLeftCountryOpen ? "-Select Option-" : selectedLeftCountry || "Select Country"}
+                  <span
+                    className={
+                      isLeftCountryOpen
+                        ? "text-[#BABABA]"
+                        : selectedLeftCountry
+                          ? "text-[#000000]"
+                          : "text-[#BABABA]"
+                    }
+                  >
+                    {isLeftCountryOpen
+                      ? "-Select Option-"
+                      : selectedLeftCountry || "Select Country"}
                   </span>
                   <span
-                    className={`border-x-[7px] border-b-0 border-t-[9px] border-x-transparent border-t-[#E3DBD8] mr-1 transition ${
+                    className={`mr-1 border-x-[7px] border-b-0 border-t-[9px] border-x-transparent border-t-[#E3DBD8] transition ${
                       isLeftCountryOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 {isLeftCountryOpen ? (
-                  <div className="absolute left-0 top-[44px] z-30 w-[230px] overflow-hidden rounded-[6px] bg-white py-[8px] text-[#000000]">
+                  <div className="absolute left-0 top-[44px] z-30 w-full overflow-hidden rounded-[6px] bg-white py-[8px] text-[#000000]">
                     {countryOptions.map((country) => (
                       <button
                         key={`left-${country}`}
@@ -257,27 +265,40 @@ function SecondPart() {
                   </div>
                 ) : null}
               </div>
-              <div ref={rightCountryRef} className="relative">
+              <div
+                ref={rightCountryRef}
+                className="relative w-full sm:max-w-[230px]"
+              >
                 <button
                   type="button"
                   onClick={() => {
                     setIsRightCountryOpen((open) => !open);
                     setIsLeftCountryOpen(false);
                   }}
-                  className="flex h-[45px] w-[230px] items-center justify-between rounded-full border border-[#E3DBD8] bg-white px-[14px] text-left text-[11px] outline-none cursor-pointer"
+                  className="flex h-[45px] w-full cursor-pointer items-center justify-between rounded-full border border-[#E3DBD8] bg-white px-[14px] text-left text-[11px] outline-none"
                 >
-                  <span className={isRightCountryOpen ? "text-[#BABABA]" : selectedRightCountry ? "text-[#000000]" : "text-[#BABABA]"}>
-                    {isRightCountryOpen ? "-Select Option-" : selectedRightCountry || "Select Country"}
+                  <span
+                    className={
+                      isRightCountryOpen
+                        ? "text-[#BABABA]"
+                        : selectedRightCountry
+                          ? "text-[#000000]"
+                          : "text-[#BABABA]"
+                    }
+                  >
+                    {isRightCountryOpen
+                      ? "-Select Option-"
+                      : selectedRightCountry || "Select Country"}
                   </span>
                   <span
-                    className={`border-x-[7px] border-b-0 border-t-[9px] border-x-transparent border-t-[#E3DBD8] mr-1 transition ${
+                    className={`mr-1 border-x-[7px] border-b-0 border-t-[9px] border-x-transparent border-t-[#E3DBD8] transition ${
                       isRightCountryOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 {isRightCountryOpen ? (
-                  <div className="absolute left-0 top-[44px] z-30 w-[230px] overflow-hidden rounded-[6px] bg-white py-[8px] text-[#000000]">
+                  <div className="absolute left-0 top-[44px] z-30 w-full overflow-hidden rounded-[6px] bg-white py-[8px] text-[#000000]">
                     {countryOptions.map((country) => (
                       <button
                         key={`right-${country}`}
@@ -299,28 +320,28 @@ function SecondPart() {
                   </div>
                 ) : null}
               </div>
-              <div className="col-span-2 flex items-center gap-[10px]">
-              <input
-                type="email"
-                placeholder="Enter Email"
-                className="h-[38px] w-[300px] rounded-full border border-white bg-transparent px-[14px] text-[11px] text-white outline-none placeholder:text-white"
-              />
-              <button
-                type="button"
-                className="h-[38px] w-[98px] rounded-full bg-white px-[10px] text-[11px] font-semibold text-[#034833] cursor-pointer"
-              >
-                Contact Us
-              </button>
+              <div className="col-span-full flex flex-col gap-[10px] sm:flex-row sm:items-center">
+                <input
+                  type="email"
+                  placeholder="Enter Email"
+                  className="h-[38px] w-full rounded-full border border-white bg-transparent px-[14px] text-[11px] text-white outline-none placeholder:text-white sm:w-[300px]"
+                />
+                <button
+                  type="button"
+                  className="h-[38px] w-[98px] rounded-full bg-white px-[10px] text-[11px] font-semibold text-[#034833] cursor-pointer"
+                >
+                  Contact Us
+                </button>
               </div>
             </form>
           </div>
         </div>
 
-        <div className="mt-[0px] flex justify-center">
+        <div className="flex justify-center lg:mt-[0px]">
           <img
             src="/whiteplane.svg"
             alt="Plane and travel documents graphic"
-            className="w-[300px] object-contain"
+            className="w-[200px] object-contain sm:w-[240px] lg:w-[300px]"
           />
         </div>
       </div>
