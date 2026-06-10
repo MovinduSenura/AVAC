@@ -36,7 +36,7 @@ function AboutUsSecondPart() {
     <section className="bg-black px-4 pb-[72px] pt-[40px] text-white sm:px-6 sm:pb-[90px] sm:pt-[56px] lg:px-8 lg:pb-[80px] lg:pt-[64px]">
       <div className="mx-auto max-w-[1000px]">
         <div className="mx-auto max-w-[860px] text-center">
-          <h2 className="mt-3 text-[38px] font-bold leading-[1.06] sm:text-[52px] lg:text-[34px]">
+          <h2 className="mt-3 text-[34px] font-bold leading-[1.06] sm:text-[38px] lg:text-[34px]">
             <span className="text-white">About </span>
             <span className="text-[color:var(--avac-gold)]">
               AVA Consultants

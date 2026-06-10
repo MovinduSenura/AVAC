@@ -110,7 +110,7 @@ function SixthPart() {
                 <img
                   src={item.filled ? "/smallArrow.png" : "/smallGoldArrow.png"}
                   alt=""
-                  className="h-[10px] w-[12px] object-contain"
+                  className="mt-[2px] h-[10px] w-[12px] object-contain"
                 />
               </button>
             </div>

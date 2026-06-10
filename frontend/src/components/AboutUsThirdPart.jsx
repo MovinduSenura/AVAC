@@ -56,7 +56,7 @@ function AboutUsThirdPart() {
               </p>              
             </div>
 
-            <h2 className="mt-[14px] max-w-[640px] text-[38px] font-bold leading-[1.06] text-[#1c1d22] sm:text-[46px] lg:text-[34px]">
+            <h2 className="mt-[14px] max-w-[640px] text-[34px] font-bold leading-[1.06] text-[#1c1d22] sm:text-[38px] lg:text-[34px]">
               Where Wanderlust Meets
               <span className="block text-[color:var(--avac-gold)]">
                 Dream Destinations
@@ -85,7 +85,7 @@ function AboutUsThirdPart() {
                         className="h-[18px] w-[18px] object-contain"
                       />
                     </div>
-                    <h3 className="text-[18px] font-semibold tracking-[-0.02em] text-[color:var(--avac-gold)]">
+                    <h3 className="text-[18px] font-bold tracking-[-0.02em] text-[color:var(--avac-gold)]">
                       {card.title}
                     </h3>
                   </div>
@@ -163,7 +163,7 @@ function AboutUsThirdPart() {
                       key={card.title}
                       className="mx-auto w-full max-w-[300px] rounded-[26px] border border-[color:var(--avac-gold)] bg-white text-center mt-20 pt-50 pb-8"
                     >
-                      <h3 className="text-[18px] font-semibold tracking-[-0.02em] text-[color:var(--avac-gold)]">
+                      <h3 className="text-[18px] font-bold tracking-[-0.02em] text-[color:var(--avac-gold)]">
                         {card.title}
                       </h3>
                       <p className="mx-auto mt-[10px] max-w-[250px] text-[11px] leading-[2.1] text-[#727272]">
