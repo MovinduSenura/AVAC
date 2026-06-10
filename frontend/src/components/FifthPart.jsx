@@ -11,7 +11,7 @@ function FifthPart() {
 
         <div className="relative z-10 max-w-[390px]">
           <h2 className="text-[34px] font-bold leading-[1.06] sm:text-[38px]">
-            Let's Do Great!
+            Let’s Do Great!
           </h2>
 
           <p className="mt-[16px] text-[13px] leading-[1.9] text-white/92">
