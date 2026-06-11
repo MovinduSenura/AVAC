@@ -36,20 +36,20 @@ const quoteCopy =
 
 function BlogThirdPart() {
   return (
-    <section className="bg-white px-4 pb-[74px] pt-[46px] text-black sm:px-6 sm:pb-[88px] sm:pt-[58px] lg:px-8 lg:pb-[102px] lg:pt-[68px]">
+    <section className="bg-white px-4 pb-[74px] pt-[46px] text-black sm:px-8 sm:pb-[102px] sm:pt-[68px]">
       <div className="mx-auto max-w-[1000px]">
         <div className="text-center">
-          <h2 className="text-[34px] font-bold leading-[1.06] text-[color:var(--avac-gold)] sm:text-[38px] lg:text-[34px]">
+          <h2 className="text-[34px] font-bold leading-[1.06] text-[color:var(--avac-gold)]">
             Escape to Extraordinary
             <span className="block">Where Every Journey</span>
           </h2>
         </div>
 
-        <div className="mt-[36px] grid gap-[18px] sm:grid-cols-2 lg:mt-[42px] lg:gap-[22px]">
+        <div className="mt-[36px] grid gap-[18px] sm:mt-[42px] sm:grid-cols-2 sm:gap-[22px]">
           {testimonialCards.map((card) => (
             <article
               key={card.name}
-              className={`rounded-[14px] px-[22px] pb-[24px] pt-[20px] shadow-[0_16px_42px_rgba(61,47,11,0.06)] lg:rounded-[16px] lg:px-[38px] lg:pb-[40px] lg:pt-[38px] ${
+              className={`rounded-[14px] px-[22px] pb-[24px] pt-[20px] shadow-[0_16px_42px_rgba(61,47,11,0.06)] sm:rounded-[16px] sm:px-[38px] sm:pb-[40px] sm:pt-[38px] ${
                 card.tinted ? "bg-[#F1F5EB]" : "bg-white"
               }`}
             >
@@ -57,17 +57,17 @@ function BlogThirdPart() {
                 src="/idea.png"
                 alt=""
                 aria-hidden="true"
-                className="h-[18px] w-[28px] object-contain lg:h-[50px] lg:w-[62px]"
+                className="h-[18px] w-[28px] object-contain sm:h-[50px] sm:w-[62px]"
               />
 
-              <p className="mt-[10px] max-w-[480px] text-[18px] leading-[1.9] text-[#727272] lg:text-[19px]">
+              <p className="mt-[10px] max-w-[480px] text-[18px] leading-[1.9] text-[#727272] sm:text-[19px]">
                 {quoteCopy}
               </p>
 
               <div className="mt-[22px] flex items-center gap-[14px]">
                 <span className="h-[48px] w-[48px] rounded-full bg-[#D9D9D9]" />
                 <div>
-                  <p className="text-[13px] font-semibold text-[color:var(--avac-gold)] lg:text-[14px]">
+                  <p className="text-[13px] font-semibold text-[color:var(--avac-gold)] sm:text-[14px]">
                     {card.name}
                   </p>
                   <p className="mt-[2px] text-[11px] text-[#b38943]">

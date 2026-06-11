@@ -53,16 +53,16 @@ function SecondPart() {
 
   return (
     <div className="mx-auto w-full max-w-[1000px]">
-      <div className="grid gap-[28px] lg:grid-cols-[525px_1fr] lg:items-center">
+      <div className="grid gap-[28px] sm:grid-cols-[525px_1fr] sm:items-center">
         <div className="overflow-hidden">
           <img
             src="/abtusimage.png"
             alt="Visa stamping, skyline and currency collage"
-            className="h-[280px] w-full rounded-[28px] object-cover sm:h-[360px] lg:h-[500px] lg:rounded-none"
+            className="h-[280px] w-full rounded-[28px] object-cover sm:h-[500px] sm:rounded-none"
           />
         </div>
 
-        <article className="px-[6px] lg:px-0">
+        <article className="px-[6px] sm:px-0">
           <div className="flex items-center gap-[10px]">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
               About Us
@@ -133,8 +133,8 @@ function SecondPart() {
         </article>
       </div>
 
-      <div className="mt-[20px] grid overflow-hidden rounded-[28px] bg-[#F1F5EB] lg:grid-cols-[50%_50.5%] lg:rounded-[40px]">
-        <div className="px-[24px] pb-[34px] pt-[38px] text-black sm:px-[36px] sm:pb-[44px] sm:pt-[48px] lg:px-[50px] lg:pb-[54px] lg:pt-[62px]">
+      <div className="mt-[20px] grid overflow-hidden rounded-[28px] bg-[#F1F5EB] sm:grid-cols-[50%_50.5%] sm:rounded-[40px]">
+        <div className="px-[24px] pb-[34px] pt-[38px] text-black sm:px-[50px] sm:pb-[54px] sm:pt-[62px]">
           <div className="flex items-center gap-[10px]">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
               Our Services
@@ -180,17 +180,17 @@ function SecondPart() {
           <img
             src="/engineer.png"
             alt="Engineer standing with folded arms"
-            className="h-[280px] w-full object-cover sm:h-[360px] lg:h-full lg:rounded-[40px]"
+            className="h-[280px] w-full object-cover sm:h-full sm:rounded-[40px]"
           />
         </div>
       </div>
 
-      <div className="mt-[70px] flex flex-col gap-[28px] rounded-[24px] bg-[color:var(--avac-gold)] px-[20px] py-[28px] text-white sm:px-[30px] sm:py-[36px] lg:mt-[100px] lg:min-h-[330px] lg:flex-row lg:items-center lg:justify-between lg:px-[50px]">
+      <div className="mt-[70px] flex flex-col gap-[28px] rounded-[24px] bg-[color:var(--avac-gold)] px-[20px] py-[28px] text-white sm:mt-[100px] sm:min-h-[330px] sm:flex-row sm:items-center sm:justify-between sm:px-[50px] sm:py-[36px]">
         <div className="relative max-w-[560px]">
           <img
             src="/map.png"
             alt=""
-            className="pointer-events-none absolute left-[30px] top-[40px] hidden w-[460px] opacity-[1] mix-blend-screen lg:block"
+            className="pointer-events-none absolute left-[30px] top-[40px] hidden w-[460px] opacity-[1] mix-blend-screen sm:block"
           />
           <div className="relative z-10">
             <h3 className="text-[32px] font-bold leading-[1.06] sm:text-[38px]">
@@ -212,7 +212,7 @@ function SecondPart() {
               </div>
             </div>
 
-            <form className="relative z-10 mt-[16px] grid max-w-full gap-[14px] sm:grid-cols-2 sm:gap-[18px] lg:w-[640px] lg:grid-cols-[250px_250px] lg:gap-x-[0px] lg:gap-y-[20px]">
+            <form className="relative z-10 mt-[16px] grid max-w-full gap-[14px] sm:w-[640px] sm:grid-cols-[250px_250px] sm:gap-x-[0px] sm:gap-y-[20px]">
               <div ref={leftCountryRef} className="relative w-full sm:max-w-[230px]">
                 <button
                   type="button"
@@ -337,11 +337,11 @@ function SecondPart() {
           </div>
         </div>
 
-        <div className="flex justify-center lg:mt-[0px]">
+        <div className="flex justify-center">
           <img
             src="/whiteplane.svg"
             alt="Plane and travel documents graphic"
-            className="w-[200px] object-contain sm:w-[240px] lg:w-[300px]"
+            className="w-[200px] object-contain sm:w-[300px]"
           />
         </div>
       </div>

@@ -1,12 +1,12 @@
 function FifthPart() {
   return (
-    <div className="mx-auto grid max-w-[1000px] overflow-hidden rounded-[18px] bg-[color:var(--avac-gold)] text-white lg:grid-cols-2">
-      <div className="relative flex items-center px-[24px] py-[28px] sm:px-[40px] sm:py-[36px] lg:min-h-[245px] lg:px-[68px] lg:py-[42px]">
+    <div className="mx-auto grid max-w-[1000px] overflow-hidden rounded-[18px] bg-[color:var(--avac-gold)] text-white sm:grid-cols-2">
+      <div className="relative flex items-center px-[24px] py-[28px] sm:min-h-[245px] sm:px-[68px] sm:py-[42px]">
         <img
           src="/map.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute left-[78%] top-1/2 hidden w-[450px] -translate-x-1/2 -translate-y-1/2 opacity-[1] lg:block"
+          className="pointer-events-none absolute left-[78%] top-1/2 hidden w-[450px] -translate-x-1/2 -translate-y-1/2 opacity-[1] sm:block"
         />
 
         <div className="relative z-10 max-w-[390px]">
@@ -38,7 +38,7 @@ function FifthPart() {
         <img
           src="/workers.png"
           alt="Healthcare and skilled workers standing together in front of a city skyline"
-          className="h-[260px] w-full rounded-[18px] object-cover sm:h-[320px] lg:h-full"
+          className="h-[260px] w-full rounded-[18px] object-cover sm:h-full"
         />
       </div>
     </div>
