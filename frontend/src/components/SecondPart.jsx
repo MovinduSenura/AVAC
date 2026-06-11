@@ -58,7 +58,7 @@ function SecondPart() {
           <img
             src="/abtusimage.png"
             alt="Visa stamping, skyline and currency collage"
-            className="h-[280px] w-full rounded-[28px] object-cover sm:h-[500px] sm:rounded-none"
+            className="h-full w-full rounded-[28px] object-cover sm:h-full sm:rounded-none"
           />
         </div>
 
