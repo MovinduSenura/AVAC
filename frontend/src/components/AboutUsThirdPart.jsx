@@ -31,20 +31,20 @@ const bottomCards = [
 
 function AboutUsThirdPart() {
   return (
-    <section className="bg-white px-4 pb-[72px] pt-[44px] text-black sm:px-6 sm:pb-[86px] sm:pt-[56px] lg:px-8 lg:pb-[0px] lg:pt-[70px]">
+    <section className="bg-white px-4 pb-[72px] pt-[44px] text-black sm:px-8 sm:pb-[0px] sm:pt-[70px]">
       <div className="mx-auto max-w-[1000px]">
-        <div className="grid gap-[0px] lg:grid-cols-[0.95fr_1.15fr] lg:items-start lg:gap-[0px]">
+        <div className="grid gap-[0px] sm:grid-cols-[0.95fr_1.15fr] sm:items-start sm:gap-[0px]">
           <div className="mx-auto w-full">
             <div className="overflow-hidden rounded-[20px]">
               <img
                 src="/whyChooseBig.png"
                 alt="Team reviewing work together on a laptop"
-                className="h-full w-full object-cover sm:h-full lg:h-full"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
 
-          <div className="pt-[4px] lg:pt-[8px] lg:pl-[50px]">
+          <div className="pt-[4px] sm:pt-[8px] sm:pl-[50px]">
             <div className="flex items-center gap-[6px]">
                 <img
                 src="/whyChoose.png"
@@ -56,7 +56,7 @@ function AboutUsThirdPart() {
               </p>              
             </div>
 
-            <h2 className="mt-[14px] max-w-[640px] text-[34px] font-bold leading-[1.06] text-[#1c1d22] sm:text-[38px] lg:text-[34px]">
+            <h2 className="mt-[14px] max-w-[640px] text-[34px] font-bold leading-[1.06] text-[#1c1d22]">
               Where Wanderlust Meets
               <span className="block text-[color:var(--avac-gold)]">
                 Dream Destinations
@@ -145,11 +145,11 @@ function AboutUsThirdPart() {
           </div>
         </div>
 
-        <div className="relative left-1/2 mt-[44px] w-screen -translate-x-1/2 bg-[linear-gradient(180deg,#ffffff_0_25%,#000000_18%_100%)] px-[14px] pb-[16px] pt-[34px] sm:px-[18px] sm:pb-[22px] sm:pt-[40px] lg:mt-[0px] lg:px-[22px] lg:pb-[80px] lg:pt-[40px]">
+        <div className="relative left-1/2 mt-[44px] w-screen -translate-x-1/2 bg-[linear-gradient(180deg,#ffffff_0_25%,#000000_18%_100%)] px-[14px] pb-[16px] pt-[34px] sm:mt-[0px] sm:px-[22px] sm:pb-[80px] sm:pt-[40px]">
           <div className="mx-auto max-w-[1450px]">
-            <div className="overflow-hidden rounded-[26px] bg-[#F1F5EB] px-[0px] py-[0px] sm:px-[24px] sm:py-[46px] lg:rounded-[26px] lg:px-[0px] lg:py-[0px]">
+            <div className="overflow-hidden rounded-[26px] bg-[#F1F5EB] px-[0px] py-[0px]">
               <div
-                className="lg:min-h-[520px]"
+                className="sm:min-h-[520px]"
                 style={{
                   backgroundImage: 'url("/pattern.png")',
                   backgroundRepeat: "no-repeat",
@@ -157,7 +157,7 @@ function AboutUsThirdPart() {
                   backgroundPosition: "center",
                 }}
               >
-                <div className="grid gap-[15px] lg:min-h-[312px] lg:grid-cols-3 lg:items-center lg:gap-[15px] max-w-[1000px] mx-auto">
+                <div className="mx-auto grid max-w-[1000px] gap-[15px] sm:min-h-[312px] sm:grid-cols-3 sm:items-center sm:gap-[15px]">
                   {bottomCards.map((card) => (
                     <article
                       key={card.title}

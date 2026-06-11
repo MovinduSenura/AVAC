@@ -22,8 +22,8 @@ function ThirdPart() {
         </h2>
       </div>
 
-      <div className="mt-[48px] flex flex-col gap-[24px] lg:mt-[72px] lg:min-h-[430px] lg:flex-row lg:items-start lg:justify-center lg:gap-[0px]">
-        <article className="relative z-10 w-full max-w-[550px] overflow-hidden rounded-[20px] bg-white px-[24px] pb-[30px] pt-[28px] text-black sm:px-[34px] sm:pb-[34px] sm:pt-[32px] lg:mt-[92px] lg:-mr-[60px] lg:px-[50px] lg:pb-[38px] lg:pt-[40px]">
+      <div className="mt-[48px] flex flex-col gap-[24px] sm:mt-[72px] sm:min-h-[430px] sm:flex-row sm:items-start sm:justify-center sm:gap-[0px]">
+        <article className="relative z-10 w-full max-w-[550px] overflow-hidden rounded-[20px] bg-white px-[24px] pb-[30px] pt-[28px] text-black sm:mt-[92px] sm:-mr-[60px] sm:px-[50px] sm:pb-[38px] sm:pt-[40px]">
           <div className="relative">
             <img
               src="/testimonialsImg.png"
@@ -31,13 +31,13 @@ function ThirdPart() {
               aria-hidden="true"
               className="pointer-events-none absolute right-[0px] top-[8px] h-[170px] w-[200px] object-contain opacity-20 sm:right-[18px] sm:top-[0px] sm:h-[230px] sm:w-[270px]"
             />
-            <p className="relative z-10 max-w-[492px] text-[16px] leading-[30px] text-[color:var(--avac-gold)] sm:text-[18px] sm:leading-[36px] lg:text-[20px] lg:leading-[42px]">
+            <p className="relative z-10 max-w-[492px] text-[16px] leading-[30px] text-[color:var(--avac-gold)] sm:text-[20px] sm:leading-[42px]">
               Leverage agile frameworks to provide a <br /> robust synopsis for
               strategy foster Leverage <br /> agile frameworks to provide a
               robust <br /> synopsis for go for strategy foster
             </p>
           </div>
-          <div className="relative z-10 mt-[28px] flex flex-col gap-[18px] sm:flex-row sm:items-center sm:justify-between lg:mt-[38px]">
+          <div className="relative z-10 mt-[28px] flex flex-col gap-[18px] sm:mt-[38px] sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-[14px]">
               <span className="h-[48px] w-[48px] rounded-full bg-[#D9D9D9]" />
               <div>
@@ -76,7 +76,7 @@ function ThirdPart() {
           <img
             src="/leafLady.png"
             alt="Farmer holding fresh produce"
-            className="h-[360px] w-full object-cover sm:h-[440px] lg:h-[520px]"
+            className="h-[360px] w-full object-cover sm:h-[520px]"
           />
           <button
             type="button"

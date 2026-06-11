@@ -73,8 +73,8 @@ function FourthPart() {
   }, []);
 
   return (
-    <div className="mx-auto grid max-w-[1000px] gap-[34px] lg:grid-cols-[0.9fr_1fr] lg:items-center">
-      <div className="order-2 flex justify-center lg:order-1 lg:justify-start lg:pl-[10px]">
+    <div className="mx-auto grid max-w-[1000px] gap-[34px] sm:grid-cols-[0.9fr_1fr] sm:items-center">
+      <div className="order-2 flex justify-center sm:order-1 sm:justify-start sm:pl-[10px]">
         <img
           src="/contactInfoMan.png"
           alt="Traveler illustration with map markers and documents"
@@ -82,7 +82,7 @@ function FourthPart() {
         />
       </div>
 
-      <div className="order-1 mx-auto w-full max-w-[640px] lg:order-2">
+      <div className="order-1 mx-auto w-full max-w-[640px] sm:order-2">
         <div className="flex items-center gap-[10px]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
             Contact Information
@@ -99,7 +99,7 @@ function FourthPart() {
           <span className="block">Guide You</span>
         </h2>
 
-        <form className="mt-[20px] rounded-[18px] bg-white px-[18px] pb-[24px] pt-[20px] shadow-[0_18px_60px_rgba(51,45,18,0.08)] sm:px-[24px] sm:pb-[30px] sm:pt-[24px] lg:mt-[18px] lg:rounded-[20px] lg:px-[20px] lg:pb-[24px] lg:pt-[22px]">
+        <form className="mt-[20px] rounded-[18px] bg-white px-[18px] pb-[24px] pt-[20px] shadow-[0_18px_60px_rgba(51,45,18,0.08)] sm:mt-[18px] sm:rounded-[20px] sm:px-[20px] sm:pb-[24px] sm:pt-[22px]">
           <div className="grid gap-x-[18px] gap-y-[14px] sm:grid-cols-2">
             <label className="block">
               <FieldLabel>Your Email</FieldLabel>

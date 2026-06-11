@@ -67,7 +67,7 @@ function SixthPart() {
         </div>
       </div>
 
-      <div className="mt-[40px] grid gap-[20px] sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-[40px] grid gap-[20px] sm:grid-cols-3">
         {packages.map((item) => (
           <article
             key={item.title}

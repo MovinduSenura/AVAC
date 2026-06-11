@@ -56,14 +56,14 @@ function SidebarCard({ title, children }) {
 
 function BlogSecondPart() {
   return (
-    <section className="bg-white px-4 pb-[78px] pt-[42px] text-black sm:px-6 sm:pb-[92px] sm:pt-[52px] lg:px-8 lg:pb-[100px] lg:pt-[62px]">
+    <section className="bg-white px-4 pb-[78px] pt-[42px] text-black sm:px-8 sm:pb-[100px] sm:pt-[62px]">
       <div className="mx-auto max-w-[1000px]">
-        <div className="grid gap-[32px] lg:grid-cols-[1.55fr_0.75fr] lg:items-start lg:gap-[28px]">
+        <div className="grid gap-[32px] sm:grid-cols-[1.55fr_0.75fr] sm:items-start sm:gap-[28px]">
           <div>
             <div className="space-y-[50px]">
               {articles.map((article) => (
                 <article key={article.title}>
-                  <div className="h-[220px] rounded-[10px] bg-[#D9D9D9] sm:h-[280px] lg:h-[312px]" />
+                  <div className="h-[220px] rounded-[10px] bg-[#D9D9D9] sm:h-[312px]" />
 
                   <div className="mt-[12px] flex flex-wrap items-center gap-x-[18px] gap-y-[8px] text-[12px] text-[#111214]">
                     <span className="flex items-center gap-[5px]">
@@ -95,7 +95,7 @@ function BlogSecondPart() {
                     </span>
                   </div>
 
-                  <h2 className="mt-[14px] max-w-[600px] text-[34px] font-bold leading-[1.06] text-[#000000] sm:text-[38px] lg:text-[34px]">
+                  <h2 className="mt-[14px] max-w-[600px] text-[34px] font-bold leading-[1.06] text-[#000000]">
                     {article.title}
                   </h2>
 
