@@ -1,5 +1,6 @@
 import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
+import HeroAnimation from "../components/HeroAnimation";
 import SecondPart from "../components/SecondPart";
 import CountryStrip from "../components/CountryStrip";
 import ThirdPart from "../components/ThirdPart";
@@ -13,8 +14,13 @@ function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       <NavBar />
-      <section id="home" className="relative overflow-hidden bg-black">
-        <Hero />
+      <section id="home" className="relative h-screen overflow-hidden bg-black">
+        <div className="absolute inset-0">
+          <HeroAnimation />
+        </div>
+        <div className="relative z-10">
+          <Hero />
+        </div>
       </section>
 
       <section
