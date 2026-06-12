@@ -74,7 +74,7 @@ const heroLayers = [
   },
   {
     key: "flightCircle",
-    src: "/flight1.png",
+    src: "/flight3.png",
     alt: "",
     ariaHidden: true,
     className:
