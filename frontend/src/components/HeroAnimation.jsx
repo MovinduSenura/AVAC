@@ -84,6 +84,7 @@ const heroLayers = [
     scrollMove: { x: 0, y: -180 },
     duration: 1200,
     delay: 0,
+    isRotating: true,
   },
 ];
 
@@ -160,6 +161,28 @@ function HeroLayer({ layer, isEntered, isIntroDone, scrollProgress }) {
     );
   }
 
+  if (layer.isRotating) {
+    return (
+      <div
+        aria-hidden="true"
+        className={`${layer.className} transform-gpu`}
+        style={sharedStyle}
+      >
+        <img
+          src={layer.src}
+          alt=""
+          className="h-full w-full object-contain"
+          style={{
+            animation: isIntroDone
+              ? "hero-flight-spin-pause 6s linear infinite"
+              : "none",
+            transformOrigin: "50% 50%",
+          }}
+        />
+      </div>
+    );
+  }
+
   return (
     <img
       src={layer.src}
@@ -226,6 +249,13 @@ function HeroAnimation() {
 
   return (
     <section ref={sceneRef} className="relative h-screen overflow-hidden bg-black">
+      <style>{`
+        @keyframes hero-flight-spin-pause {
+          0% { transform: rotate(0deg); }
+          50% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_58%)]" />
 
       <div className="absolute left-1/2 top-1/2 aspect-[16/9] w-[max(100vw,calc(100vh*1.7778))] -translate-x-1/2 -translate-y-1/2">
