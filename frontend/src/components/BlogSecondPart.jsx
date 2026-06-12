@@ -122,25 +122,25 @@ function BlogSecondPart() {
             <div className="mt-[60px] flex items-center justify-center gap-[10px]">
               <button
                 type="button"
-                className="flex h-[35px] w-[35px] items-center justify-center rounded-[4px] border border-[color:var(--avac-gold)] text-[13px] font-semibold text-[color:var(--avac-gold)]"
+                className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[color:var(--avac-gold)] text-[13px] font-semibold text-[color:var(--avac-gold)]"
               >
                 1
               </button>
               <button
                 type="button"
-                className="flex h-[35px] w-[35px] items-center justify-center rounded-[4px] border border-[#E3DBD8] text-[13px] font-semibold text-[#734611]"
+                className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[#E3DBD8] text-[13px] font-semibold text-[#734611]"
               >
                 2
               </button>
               <button
                 type="button"
-                className="flex h-[35px] w-[35px] items-center justify-center rounded-[4px] border border-[#E3DBD8] text-[13px] font-semibold text-[#734611]"
+                className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[#E3DBD8] text-[13px] font-semibold text-[#734611]"
               >
                 3
               </button>
               <button
                 type="button"
-                className="flex h-[35px] w-[35px] items-center justify-center rounded-[4px] border border-[#E3DBD8]"
+                className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[#E3DBD8]"
               >
                 <img
                   src="/brownArrow.png"
@@ -159,12 +159,18 @@ function BlogSecondPart() {
                   placeholder="Search.."
                   className="flex-1 border-0 bg-transparent text-[12px] text-[#000000] outline-none placeholder:text-[#727272]"
                 />
-                <img
-                  src="/searchIcon.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="h-[16px] w-[16px] object-contain"
-                />
+                <button
+                  type="button"
+                  aria-label="Search"
+                  className="flex h-[24px] w-[24px] cursor-pointer items-center justify-center"
+                >
+                  <img
+                    src="/searchIcon.svg"
+                    alt=""
+                    aria-hidden="true"
+                    className="h-[16px] w-[16px] object-contain"
+                  />
+                </button>
               </div>
             </SidebarCard>
 
