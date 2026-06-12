@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
-import HeAn from "./components/HeroAnimation";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/hean" element={<HeAn />} />
         </Routes>
       </BrowserRouter>
     </>
