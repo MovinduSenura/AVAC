@@ -6,10 +6,10 @@ const heroLayers = [
     src: "/heroMap.png",
     alt: "Map of Europe",
     className:
-      "pointer-events-none absolute left-1/2 top-0 w-[73.25%] max-w-none opacity-65",
+      "pointer-events-none absolute left-1/2 top-0 z-0 w-[73.25%] max-w-none opacity-65",
     introFrom: "translate3d(-50%, -125%, 0)",
     rest: "translate3d(-50%, 0, 0)",
-    scrollMove: { x: 0, y: -125 },
+    scrollMove: { x: 0, y: -180 },
     duration: 1200,
     delay: 0,
   },
@@ -18,7 +18,7 @@ const heroLayers = [
     src: "/heroLeftLady.png",
     alt: "Healthcare worker",
     className:
-      "absolute top-[39%] left-[6.7%] w-[20.85%] max-w-none object-contain",
+      "absolute top-[26%] left-[6.9%] z-20 w-[27%] max-w-none object-contain",
     introFrom: "translate3d(-140%, -38%, 0)",
     rest: "translate3d(0, 0, 0)",
     scrollMove: { x: -140, y: -38 },
@@ -27,10 +27,10 @@ const heroLayers = [
   },
   {
     key: "leftMan",
-    src: "/heroLeftMan.png",
+    src: "/heroLeftMan2.png",
     alt: "Worker with folded arms",
     className:
-      "absolute top-45 left-[-0.35%] w-[20.85%] max-w-none object-contain",
+      "absolute top-20 left-[-8%] z-20 w-[32%] max-w-none object-contain",
     introFrom: "translate3d(-152%, -34%, 0)",
     rest: "translate3d(0, 0, 0)",
     scrollMove: { x: -152, y: -34 },
@@ -42,7 +42,7 @@ const heroLayers = [
     src: "/heroRightMan.png",
     alt: "Worker holding clipboard",
     className:
-      "absolute top-[39%] right-[6.7%] w-[20.85%] max-w-none object-contain",
+      "absolute top-[26%] right-[6.5%] z-20 w-[27%] max-w-none object-contain",
     introFrom: "translate3d(140%, -38%, 0)",
     rest: "translate3d(0, 0, 0)",
     scrollMove: { x: 140, y: -38 },
@@ -51,10 +51,10 @@ const heroLayers = [
   },
   {
     key: "rightLady",
-    src: "/heroRightLady.png",
+    src: "/heroRightLady2.png",
     alt: "Chef smiling",
     className:
-      "absolute top-45 right-[-0.2%] w-[20.85%] max-w-none object-contain",
+      "absolute top-20 right-[-9%] z-20 w-[32%] max-w-none object-contain",
     introFrom: "translate3d(152%, -34%, 0)",
     rest: "translate3d(0, 0, 0)",
     scrollMove: { x: 152, y: -34 },
@@ -63,16 +63,28 @@ const heroLayers = [
   },
   {
     key: "shadow",
-    src: "/heroShadow.png",
-    alt: "",
-    ariaHidden: true,
     className:
-      "pointer-events-none absolute inset-x-0 bottom-0 w-full max-w-none object-cover",
+      "pointer-events-none absolute inset-x-0 bottom-0 z-30 h-[30%] w-full max-w-none",
     introFrom: "translate3d(0, 125%, 0)",
     rest: "translate3d(0, 0, 0)",
     scrollMove: { x: 0, y: 125 },
     duration: 1200,
     delay: 0,
+    isShadow: true,
+  },
+  {
+    key: "flightCircle",
+    src: "/flight3.png",
+    alt: "",
+    ariaHidden: true,
+    className:
+      "pointer-events-none absolute left-1/2 bottom-[22%] z-10 w-[62%] max-w-none object-contain",
+    introFrom: "translate3d(-50%, -125%, 0)",
+    rest: "translate3d(-50%, 0, 0)",
+    scrollMove: { x: 0, y: -180 },
+    duration: 1200,
+    delay: 0,
+    isRotating: true,
   },
 ];
 
@@ -118,6 +130,58 @@ function HeroLayer({ layer, isEntered, isIntroDone, scrollProgress }) {
     ? buildScrollTransform(layer.rest, layer.scrollMove, scrollProgress)
     : layer.introFrom;
   const opacity = isEntered ? Math.max(0, 1 - scrollProgress * 1.35) : 0;
+  const sharedStyle = {
+    transform,
+    opacity,
+    transitionProperty: "transform, opacity",
+    transitionDuration: isIntroDone
+      ? "120ms, 160ms"
+      : `${layer.duration}ms, 520ms`,
+    transitionTimingFunction: isIntroDone
+      ? "linear, linear"
+      : "cubic-bezier(0.22, 1, 0.36, 1), ease-out",
+    transitionDelay:
+      isEntered && !isIntroDone
+        ? `${layer.delay}ms, ${layer.delay + 120}ms`
+        : "0ms, 0ms",
+    willChange: "transform, opacity",
+  };
+
+  if (layer.isShadow) {
+    return (
+      <div
+        aria-hidden="true"
+        className={`${layer.className} transform-gpu`}
+        style={{
+          ...sharedStyle,
+          background:
+            "linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 28%, rgba(0,0,0,0.92) 55%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.22) 92%, rgba(0,0,0,0) 100%)",
+        }}
+      />
+    );
+  }
+
+  if (layer.isRotating) {
+    return (
+      <div
+        aria-hidden="true"
+        className={`${layer.className} transform-gpu`}
+        style={sharedStyle}
+      >
+        <img
+          src={layer.src}
+          alt=""
+          className="h-full w-full object-contain"
+          style={{
+            animation: isIntroDone
+              ? "hero-flight-spin-pause 6s linear infinite"
+              : "none",
+            transformOrigin: "50% 50%",
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <img
@@ -125,22 +189,7 @@ function HeroLayer({ layer, isEntered, isIntroDone, scrollProgress }) {
       alt={layer.alt}
       aria-hidden={layer.ariaHidden ? "true" : undefined}
       className={`${layer.className} transform-gpu`}
-      style={{
-        transform,
-        opacity,
-        transitionProperty: "transform, opacity",
-        transitionDuration: isIntroDone
-          ? "120ms, 160ms"
-          : `${layer.duration}ms, 520ms`,
-        transitionTimingFunction: isIntroDone
-          ? "linear, linear"
-          : "cubic-bezier(0.22, 1, 0.36, 1), ease-out",
-        transitionDelay:
-          isEntered && !isIntroDone
-            ? `${layer.delay}ms, ${layer.delay + 120}ms`
-            : "0ms, 0ms",
-        willChange: "transform, opacity",
-      }}
+      style={sharedStyle}
     />
   );
 }
@@ -200,10 +249,19 @@ function HeroAnimation() {
 
   return (
     <section ref={sceneRef} className="relative h-screen overflow-hidden bg-black">
+      <style>{`
+        @keyframes hero-flight-spin-pause {
+          0% { transform: rotate(0deg); }
+          50% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_58%)]" />
 
       <div className="absolute left-1/2 top-1/2 aspect-[16/9] w-[max(100vw,calc(100vh*1.7778))] -translate-x-1/2 -translate-y-1/2">
-        {heroLayers.map((layer) => (
+        {heroLayers
+          .filter((layer) => layer.key !== "shadow")
+          .map((layer) => (
           <HeroLayer
             key={layer.key}
             layer={layer}
@@ -212,6 +270,18 @@ function HeroAnimation() {
             scrollProgress={scrollProgress}
           />
         ))}
+
+        {heroLayers
+          .filter((layer) => layer.key === "shadow")
+          .map((layer) => (
+            <HeroLayer
+              key={layer.key}
+              layer={layer}
+              isEntered={isEntered}
+              isIntroDone={isIntroDone}
+              scrollProgress={scrollProgress}
+            />
+          ))}
       </div>
     </section>
   );
