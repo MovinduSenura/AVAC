@@ -125,7 +125,13 @@ function buildScrollTransform(baseTransform, scrollMove, progress) {
   return `translate3d(${nextX}${parsed.unitX}, ${nextY}${parsed.unitY}, ${parsed.z}${parsed.unitZ})`;
 }
 
-function HeroLayer({ layer, isEntered, isIntroDone, scrollProgress }) {
+function HeroLayer({
+  layer,
+  isEntered,
+  isIntroDone,
+  scrollProgress,
+  hasStartedFlightLoop,
+}) {
   const transform = isEntered
     ? buildScrollTransform(layer.rest, layer.scrollMove, scrollProgress)
     : layer.introFrom;
@@ -168,17 +174,19 @@ function HeroLayer({ layer, isEntered, isIntroDone, scrollProgress }) {
         className={`${layer.className} transform-gpu`}
         style={sharedStyle}
       >
-        <img
-          src={layer.src}
-          alt=""
-          className="h-full w-full object-contain"
-          style={{
-            animation: isIntroDone
-              ? "hero-flight-spin-pause 6s linear infinite"
-              : "none",
-            transformOrigin: "50% 50%",
-          }}
-        />
+          <img
+            src={layer.src}
+            alt=""
+            className="h-full w-full object-contain"
+            style={{
+              animation: isIntroDone
+                ? hasStartedFlightLoop
+                  ? "hero-flight-spin-pause 6s linear infinite"
+                  : "hero-flight-spin-first 3s linear 1 forwards"
+                : "none",
+              transformOrigin: "50% 50%",
+            }}
+          />
       </div>
     );
   }
@@ -197,6 +205,7 @@ function HeroLayer({ layer, isEntered, isIntroDone, scrollProgress }) {
 function HeroAnimation() {
   const [isEntered, setIsEntered] = useState(false);
   const [isIntroDone, setIsIntroDone] = useState(false);
+  const [hasStartedFlightLoop, setHasStartedFlightLoop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const sceneRef = useRef(null);
 
@@ -213,6 +222,20 @@ function HeroAnimation() {
       window.clearTimeout(timeoutId);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isIntroDone) {
+      return undefined;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setHasStartedFlightLoop(true);
+    }, 3000);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [isIntroDone]);
 
   useEffect(() => {
     let ticking = false;
@@ -250,6 +273,11 @@ function HeroAnimation() {
   return (
     <section ref={sceneRef} className="relative h-screen overflow-hidden bg-black">
       <style>{`
+        @keyframes hero-flight-spin-first {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
         @keyframes hero-flight-spin-pause {
           0% { transform: rotate(0deg); }
           50% { transform: rotate(0deg); }
@@ -268,6 +296,7 @@ function HeroAnimation() {
             isEntered={isEntered}
             isIntroDone={isIntroDone}
             scrollProgress={scrollProgress}
+            hasStartedFlightLoop={hasStartedFlightLoop}
           />
         ))}
 
@@ -280,6 +309,7 @@ function HeroAnimation() {
               isEntered={isEntered}
               isIntroDone={isIntroDone}
               scrollProgress={scrollProgress}
+              hasStartedFlightLoop={hasStartedFlightLoop}
             />
           ))}
       </div>
