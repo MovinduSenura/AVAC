@@ -1,5 +1,5 @@
 const locationQuery = encodeURIComponent(
-  "No. 80/21 Roseville Place, Dalugama, Kelaniya, Sri Lanka"
+  "80/21 Roseville Place, Dalugama, Kelaniya, Sri Lanka"
 );
 
 function Map() {

@@ -6,6 +6,7 @@ const navItems = [
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
   { label: "Blog", href: "/blog" },
+  { label: "AVAFE", href: "/avafe" },
 ];
 
 function NavBar() {
@@ -39,18 +40,13 @@ function NavBar() {
             className="h-[36px] w-[36px] rounded-full object-cover min-[1085px]:h-[30px] min-[1085px]:w-[30px]"
           />
           <span className="hidden max-w-[220px] truncate text-[14px] font-normal tracking-[-0.06em] text-white min-[1200px]:inline min-[1200px]:max-w-none min-[1200px]:text-[19px]">
-            AVA Consultants (Private) Limited
+            AVA&nbsp;
           </span>
         </Link>
 
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-2 min-[1085px]:flex">
           {navItems.map((item) => {
-            const isActive =
-              (item.label === "Home" && location.pathname === "/") ||
-              (item.label === "About Us" && location.pathname === "/about") ||
-              (item.label === "Contact Us" &&
-                location.pathname === "/contact") ||
-              (item.label === "Blog" && location.pathname === "/blog");
+            const isActive = location.pathname === item.href;
 
             const className = `inline-flex h-[26px] min-w-[68px] items-center justify-center rounded-[25px] px-[14px] text-center text-[12px] uppercase leading-none tracking-[1.2px] transition-colors ${
               isActive
@@ -65,7 +61,12 @@ function NavBar() {
             );
 
             return item.href.startsWith("/") ? (
-              <Link key={item.label} to={item.href} className={className}>
+              <Link
+                key={item.label}
+                to={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={className}
+              >
                 {content}
               </Link>
             ) : (
@@ -129,6 +130,7 @@ function NavBar() {
               <Link
                 key={item.label}
                 to={item.href}
+                aria-current={location.pathname === item.href ? "page" : undefined}
                 className="text-center text-[18px] font-medium uppercase leading-none tracking-[0.02em] text-[color:var(--avac-gold)] [word-spacing:0.18em]"
               >
                 {item.label}

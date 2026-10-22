@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
 import HeroAnimation from "../components/HeroAnimation";
+import CompanySection from "../components/CompanySection";
 import SecondPart from "../components/SecondPart";
 import CountryStrip from "../components/CountryStrip";
 import ThirdPart from "../components/ThirdPart";
@@ -23,6 +24,8 @@ function Home() {
         </div>
       </section>
 
+      <CompanySection />
+
       <section
         id="about"
         className="relative bg-[linear-gradient(180deg,#ffffff_0_49%,#000000_49%_100%)] px-4 pb-[60px] pt-[18px] sm:px-8 sm:pb-[79px] sm:pt-[22px]"
@@ -30,7 +33,7 @@ function Home() {
         <SecondPart />
       </section>
 
-      <section className="group bg-white px-4 py-[15px] text-black transition-colors duration-300 hover:bg-[color:var(--avac-gold)] sm:px-8 sm:py-[17px]">
+      <section className="group bg-[#f1f5eb] px-4 py-[15px] text-black transition-colors duration-300 hover:bg-[color:var(--avac-gold)] sm:px-8 sm:py-[17px]">
         <CountryStrip />
       </section>
 

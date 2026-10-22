@@ -19,7 +19,7 @@ function BlogFirstPart() {
               aria-hidden="true"
               className="mt-[4px] h-[8px] w-[5px] object-contain"
             />
-            <span className="block">Success Story</span>
+            <span className="block">Blog</span>
           </div>
         </div>
       </div>

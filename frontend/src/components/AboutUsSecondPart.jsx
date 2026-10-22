@@ -2,19 +2,38 @@ const pillars = [
   {
     title: "VISION",
     description:
-      "Our vision is to be the\ntrusted and distinctive\nleader in the migration\nindustry, known for our\nintegrity, innovation, and\nunwavering commitment\nto enabling international\nopportunity, supporting\nworkforce needs, and\ndeveloping skilled global\ncitizens.",
+      "Our vision is to be the trusted and distinctive leader in the migration industry, known for our integrity, innovation, and unwavering commitment to enabling international opportunity, supporting workforce needs, and developing skilled global citizens.",
     icon: "/eye.png",
   },
   {
     title: "MISSION",
     description:
-      "Our mission is to connect\npeople with possibilities\nby delivering ethical,\ninnovative, and uniquely\nclient-focused migration\nservices. We support\nskilled individuals in\nnavigating their path to\nnew beginnings,\ncontributing to national\neconomies through\nforeign income\ngeneration and\nworkforce support,\nenriching communities,\nand shaping a more\nconnected world.",
+      "Our mission is to connect people with possibilities by delivering ethical, innovative, and uniquely client-focused migration services. We support skilled individuals in navigating their path to new beginnings, contributing to national economies through foreign income generation and workforce support, enriching communities, and shaping a more connected world.",
     icon: "/target.png",
   },
   {
     title: "VALUES",
-    description:
-      "Et purus duis\nsollicitudin dignissim\nhabitant. Egestas nulla\nquis venenatis cras sed\neu massa Et purus duis\nsollicitudin dignissim\nhabitant. Egestas nulla\nquis venenatis cras sed\neu massa Et purus duis\nsollicitudin dignissim\nhabitant. Egestas nulla",
+    values: [
+      {
+        title: "A - Authenticity",
+        description: "We act with honesty and integrity.",
+      },
+      {
+        title: "V - Value-Driven Service",
+        description:
+          "We provide honest guidance, clear processes, and solutions that truly serve our clients’ long-term goals.",
+      },
+      {
+        title: "A - Accuracy",
+        description:
+          "We operate with precision, compliance, and attention to detail in every application and interaction.",
+      },
+      {
+        title: "C - Collaboration",
+        description:
+          "We work better together—respectfully, inclusively, and transparently",
+      },
+    ],
     icon: "/gem.png",
   },
 ];
@@ -39,7 +58,7 @@ function AboutUsSecondPart() {
           <h2 className="mt-3 text-[34px] font-bold leading-[1.06]">
             <span className="text-white">About </span>
             <span className="text-[color:var(--avac-gold)]">
-              AVA Consultants
+              AVAC
             </span>
           </h2>
 
@@ -58,11 +77,11 @@ function AboutUsSecondPart() {
           </p>
         </div>
 
-        <div className="mx-auto mt-[56px] grid max-w-[980px] gap-[44px] sm:mt-[88px] sm:max-w-[1120px] sm:grid-cols-3 sm:gap-[54px]">
+        <div className="mx-auto mt-[56px] grid w-full gap-[44px] sm:mt-[88px] sm:grid-cols-3 sm:gap-[54px]">
           {pillars.map((pillar) => (
             <article
               key={pillar.title}
-              className="flex flex-col items-center text-center"
+              className="flex min-w-0 flex-col items-center text-center"
             >
               <PillarIcon src={pillar.icon} alt={`${pillar.title} icon`} />
 
@@ -70,9 +89,20 @@ function AboutUsSecondPart() {
                 {pillar.title}
               </h3>
 
-              <p className="mt-[24px] max-w-[310px] whitespace-pre-line text-[15px] leading-[1.28] text-white/90 sm:text-[16px]">
-                {pillar.description}
-              </p>
+              {pillar.values ? (
+                <div className="mt-[24px] w-full max-w-[310px] space-y-[20px] text-[15px] leading-[1.6] text-white/90 sm:text-[16px]">
+                  {pillar.values.map((value) => (
+                    <div key={value.title}>
+                      <h4 className="font-semibold text-white">{value.title}</h4>
+                      <p className="mt-[6px]">{value.description}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-[24px] w-full max-w-[310px] text-[15px] leading-[1.6] text-white/90 sm:text-[16px]">
+                  {pillar.description}
+                </p>
+              )}
             </article>
           ))}
         </div>
