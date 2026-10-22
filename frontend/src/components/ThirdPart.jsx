@@ -1,7 +1,7 @@
 function ThirdPart() {
   return (
     <div className="mx-auto max-w-[1000px]">
-      <div className="flex items-center justify-center gap-[10px]">
+      {/* <div className="flex items-center justify-center gap-[10px]">
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
           Client Testimonials
         </p>
@@ -10,15 +10,15 @@ function ThirdPart() {
           alt=""
           className="h-[12px] w-[18px] object-contain"
         />
-      </div>
+      </div> */}
       <div className="text-center">
         <h2 className="mt-[12px] text-[34px] font-bold leading-[1.06] sm:text-[38px]">
           <span className="text-[color:var(--avac-gold)]">
-            Escape To Extraordinary
+            Client Testimonials
           </span>
-          <span className="block text-[color:var(--avac-gold)]">
+          {/* <span className="block text-[color:var(--avac-gold)]">
             Where Every Journey
-          </span>
+          </span> */}
         </h2>
       </div>
 

@@ -1,21 +1,22 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const servicePoints = [
   "Where trust meets opportunity",
   "Expert guidance. Proven results",
   "Your future, our responsibility",
-  "Turning dreams into destinations",
+  // "Turning dreams into destinations",
 ];
 
 const countryGroups = [
-  "a. Poland",
-  "b. Latvia",
-  "c. Lithuania",
-  "d. Czech Republic",
-  "e. Slovakia",
-  "f. Slovenia",
-  "g. Hungary",
-  "h. Serbia",
+  { name: "Poland", code: "pl" },
+  { name: "Latvia", code: "lv" },
+  { name: "Lithuania", code: "lt" },
+  { name: "Czech Republic", code: "cz" },
+  { name: "Slovakia", code: "sk" },
+  { name: "Slovenia", code: "si" },
+  { name: "Hungary", code: "hu" },
+  { name: "Serbia", code: "rs" },
 ];
 
 const aboutCollageImages = [
@@ -70,9 +71,7 @@ function SecondPart() {
   const leftCountryRef = useRef(null);
   const rightCountryRef = useRef(null);
 
-  const countryOptions = countryGroups.map((country) =>
-    country.replace(/^[a-z]\.\s*/i, ""),
-  );
+  const countryOptions = countryGroups.map((country) => country.name);
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -145,10 +144,10 @@ function SecondPart() {
               className="h-[12px] w-[18px] object-contain"
             />
           </div>
-          <h2 className="mt-[10px] max-w-[420px] text-[34px] font-bold leading-[1.06] text-[#16171A] sm:text-[38px]">
-            We Provide The Best
+          <h2 className="mt-[14px] text-[34px] font-bold leading-[1.06] text-[#16171A]">
+            Dedicated To Your
             <span className="block text-[color:var(--avac-gold)]">
-              Service For Consulting
+              Success
             </span>
           </h2>
           <p className="mt-[14px] max-w-[470px] text-[13px] leading-[1.8] text-[#000000]">
@@ -189,8 +188,8 @@ function SecondPart() {
             </div>
           </div>
 
-          <button
-            type="button"
+          <Link
+            to="/about"
             className="mt-[30px] inline-flex h-[50px] cursor-pointer items-center justify-center gap-[10px] rounded-full bg-[color:var(--avac-gold)] px-[28px] text-[11px] font-semibold text-white"
           >
             <span className="leading-none">Read More</span>
@@ -201,7 +200,7 @@ function SecondPart() {
                 className="block h-[10px] w-[12px] object-contain"
               />
             </span>
-          </button>
+          </Link>
         </article>
       </div>
 
@@ -218,22 +217,25 @@ function SecondPart() {
             />
           </div>
 
-          <h3 className="mt-[18px] max-w-[420px] text-[34px] font-bold leading-[1.06] text-[#16171A] sm:text-[38px]">
-            Turning Dreams
-            <span className="block">Into Destinations</span>
-            <span className="block text-[color:var(--avac-gold)]">
+          <h3 className="mt-[14px] text-[34px] font-bold leading-[1.06]">
+            We Provide The Best
+            <span className="block text-[color:var(--avac-gold)]">Service For Consulting</span>
+            {/* <span className="block text-[color:var(--avac-gold)]">
               Discover Your
             </span>
             <span className="block text-[color:var(--avac-gold)]">
               Next Move
-            </span>
+            </span> */}
           </h3>
 
-          <div className="mt-[28px]">
-            <p className="text-[14px] font-bold text-[#000000]">
-              Migration Consultancy
+          <div className="mt-[15px]">
+            <p className="text-[14px] font-bold text-[color:var(--avac-gold)]">
+              Dedicated to your success
             </p>
-            <ul className="mt-[10px] space-y-[8px] text-[13px] leading-[1.8] text-[#000000]">
+            <p className="mt-[20px] text-[14px] font-normal text-[#000000]">
+              Turning Dreams Into Destinations - Discover Your Next Move.
+            </p>
+            <ul className="mt-[20px] space-y-[8px] text-[13px] leading-[1.8] text-[#000000]">
               {servicePoints.map((item) => (
                 <li key={item} className="flex items-start gap-[10px]">
                   <img
@@ -265,23 +267,24 @@ function SecondPart() {
             className="pointer-events-none absolute left-[30px] top-[40px] hidden w-[460px] opacity-[1] mix-blend-screen sm:block"
           />
           <div className="relative z-10">
-            <h3 className="text-[32px] font-bold leading-[1.06] sm:text-[38px]">
-              Are you ready to fly?
+            <h3 className="text-[34px] font-bold leading-[1.06]">
+              Are You Ready To Fly?
             </h3>
             <p className="mt-[10px] text-[13px] font-bold text-[#000000] sm:text-[14px]">
               Preferred Job & Countries in Europe (Choose 2)
             </p>
-            <div className="mt-[5px] max-w-[620px] text-[13px] leading-[1.9] text-[#000000] sm:text-[14px]">
-              <div className="flex flex-wrap gap-x-[22px]">
-                {countryGroups.slice(0, 4).map((country) => (
-                  <span key={country}>{country}</span>
-                ))}
-              </div>
-              <div className="mt-[2px] flex flex-wrap gap-x-[22px]">
-                {countryGroups.slice(4).map((country) => (
-                  <span key={country}>{country}</span>
-                ))}
-              </div>
+            <div className="mt-[12px] grid w-fit grid-cols-4 items-center gap-x-[28px] gap-y-[10px] sm:gap-x-[42px]">
+              {countryGroups.map((country) => (
+                <img
+                  key={country.code}
+                  src={`/flags/${country.code}.png`}
+                  alt={`${country.name} flag`}
+                  title={country.name}
+                  width={48}
+                  height={32}
+                  className="h-[32px] w-[48px] object-fill"
+                />
+              ))}
             </div>
 
             <form className="relative z-10 mt-[16px] grid max-w-full gap-[14px] sm:w-[640px] sm:grid-cols-[250px_250px] sm:gap-x-[0px] sm:gap-y-[20px]">

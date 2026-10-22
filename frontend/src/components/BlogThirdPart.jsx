@@ -1,3 +1,6 @@
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+
 const testimonialCards = [
   {
     name: "Albert Flores",
@@ -35,8 +38,21 @@ const quoteCopy =
   "We have been operating for over an go providin top-notch services to our is a clients and build strong track record in the industry.We have been operating in for over a decad providi ina";
 
 function BlogThirdPart() {
+  const sectionRef = useRef(null);
+  const { hash, key } = useLocation();
+
+  useEffect(() => {
+    if (hash === "#testimonials") {
+      sectionRef.current?.scrollIntoView({ block: "start" });
+    }
+  }, [hash, key]);
+
   return (
-    <section className="bg-white px-4 pb-[74px] pt-[46px] text-black sm:px-8 sm:pb-[102px] sm:pt-[68px]">
+    <section
+      id="testimonials"
+      ref={sectionRef}
+      className="bg-white px-4 pb-[74px] pt-[46px] text-black sm:px-8 sm:pb-[102px] sm:pt-[68px]"
+    >
       <div className="mx-auto max-w-[1000px]">
         <div className="text-center">
           <h2 className="text-[34px] font-bold leading-[1.06] text-[color:var(--avac-gold)]">

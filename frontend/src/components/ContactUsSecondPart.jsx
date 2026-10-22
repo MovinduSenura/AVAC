@@ -12,23 +12,23 @@ const contactItems = [
   {
     icon: "/goldLocation.svg",
     label: "Location",
-    value: "No. 80/21 Roseville Place,\nDalugama, Kelaniya,\nSri Lanka.",
+    value: "80/21 Roseville Place,\nDalugama, Kelaniya,\nSri Lanka.",
   },
 ];
 
 const officeHours = [
   {
-    label: "Monday",
-    hours: "9 am - 5 pm",
+    label: "Monday - Friday",
+    hours: "08:30 Hrs ~ 13:30 Hrs",
   },
   {
-    label: "Tuesday-Friday",
-    hours: "10 am - 6 pm",
+    label: "And",
+    hours: "17:30 Hrs ~ 20:30 Hrs",
   },
-  {
-    label: "Saturday",
-    hours: "9 am - 3 pm",
-  },
+  // {
+  //   label: "Saturday",
+  //   hours: "9 am - 3 pm",
+  // },
 ];
 
 function ContactUsSecondPart() {
@@ -38,7 +38,7 @@ function ContactUsSecondPart() {
         <div className="mx-auto max-w-[760px] text-center">
           <div className="flex items-center justify-center gap-[10px]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
-            Contact Information
+            Our Contact Details
           </p>
           <img
             src="/paperRocket.svg"
@@ -52,11 +52,11 @@ function ContactUsSecondPart() {
             <span className="block">We Promise That</span>
           </h2>
 
-          <p className="mx-auto mt-[16px] max-w-[620px] text-[13px] leading-[1.8] text-[#000000] sm:text-[14px]">
+          {/* <p className="mx-auto mt-[16px] max-w-[620px] text-[13px] leading-[1.8] text-[#000000] sm:text-[14px]">
             Pellentesque arcu facilisis nunc mi proin. Dignissim mattis in
             lectus tincidunt tincidunt ultrices. <br/> Diam convallis morbi
             pellentesque adipiscing
-          </p>
+          </p> */}
         </div>
 
         <div className="mx-auto mt-[38px] max-w-[1170px] rounded-[24px] bg-white px-[20px] py-[20px] shadow-[0_24px_80px_rgba(174,150,111,0.16)] sm:mt-[52px] sm:px-[45px] sm:py-[45px]">

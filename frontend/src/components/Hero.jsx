@@ -7,7 +7,7 @@ function Hero() {
           <span className="text-[color:var(--avac-gold)]">
             Your Journey
             <br />
-            Into The Future.
+            Into The Future
           </span>
         </h1>
         <p className="mt-[15px] max-w-[582px] text-[17px] leading-[28px] text-white/88 sm:text-[19px] sm:leading-[30px]">
