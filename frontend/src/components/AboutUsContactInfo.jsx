@@ -47,7 +47,7 @@ function AboutUsContactInfo() {
           <span className="block">Guide You</span>
         </h2> */}
 
-        <form className="mt-[20px] rounded-[18px] bg-white px-[18px] pb-[24px] pt-[20px] shadow-[0_18px_60px_rgba(51,45,18,0.08)] sm:mt-[18px] sm:rounded-[20px] sm:px-[20px] sm:pb-[24px] sm:pt-[22px]">
+        <form className="mt-[20px] rounded-[18px] bg-white px-[18px] pb-[24px] pt-[20px] shadow-[0_18px_60px_rgba(51,45,18,0.08)] sm:mt-[18px] sm:rounded-[20px] sm:px-[20px] sm:pb-[26px] sm:pt-[30px]">
           <div className="grid gap-x-[18px] gap-y-[14px] sm:grid-cols-2">
             <label className="col-span-full block">
               <FieldLabel>Your Name</FieldLabel>
