@@ -33,7 +33,7 @@ const officeHours = [
 
 function ContactUsSecondPart() {
   return (
-    <section className="bg-white px-4 pb-[68px] pt-[0px] text-black sm:px-8 sm:pb-[92px]">
+    <section className="bg-white px-4 pb-0 pt-[40px] text-black sm:px-8 sm:pb-[92px] sm:pt-0">
       <div className="mx-auto max-w-[1450px]">
         <div className="mx-auto max-w-[760px] text-center">
           <div className="flex items-center justify-center gap-[10px]">

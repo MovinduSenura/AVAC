@@ -25,12 +25,12 @@ function InputShell({ children, icon, textarea = false }) {
 
 function FourthPart() {
   return (
-    <div className="mx-auto grid max-w-[1000px] gap-[34px] sm:grid-cols-[0.9fr_1fr] sm:items-center">
-      <div className="order-2 flex justify-center sm:order-1 sm:justify-start sm:pl-[10px]">
+    <div className="mx-auto grid max-w-[1000px] gap-[24px] sm:grid-cols-[0.9fr_1fr] sm:items-center sm:gap-[34px]">
+      <div className="flex justify-center sm:justify-start sm:pl-[10px]">
         <ContactIntro />
       </div>
 
-      <div className="order-1 mx-auto w-full max-w-[640px] sm:order-2">
+      <div className="mx-auto w-full max-w-[640px]">
         {/* <div className="flex items-center gap-[10px]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
             Contact Information
@@ -47,7 +47,7 @@ function FourthPart() {
           <span className="block">Guide You</span>
         </h2> */}
 
-        <form className="mt-[20px] rounded-[18px] bg-white px-[18px] pb-[24px] pt-[20px] shadow-[0_18px_60px_rgba(51,45,18,0.08)] sm:mt-[18px] sm:rounded-[20px] sm:px-[20px] sm:pb-[26px] sm:pt-[30px]">
+        <form className="mt-0 rounded-[18px] bg-white px-[18px] pb-[24px] pt-[20px] shadow-[0_18px_60px_rgba(51,45,18,0.08)] sm:mt-[18px] sm:rounded-[20px] sm:px-[20px] sm:pb-[26px] sm:pt-[30px]">
           <div className="grid gap-x-[18px] gap-y-[14px] sm:grid-cols-2">
             <label className="col-span-full block">
               <FieldLabel>Your Name</FieldLabel>

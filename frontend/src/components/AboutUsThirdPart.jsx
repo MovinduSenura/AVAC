@@ -19,7 +19,7 @@ const employeeServices = [
 
 function AboutUsThirdPart() {
   return (
-    <section className="bg-white px-4 pb-[72px] pt-[44px] text-black sm:px-8 sm:pb-[0px] sm:pt-[70px]">
+    <section className="bg-white px-4 pb-0 pt-[44px] text-black sm:px-8 sm:pb-[0px] sm:pt-[70px]">
       <div className="mx-auto max-w-[1000px]">
         <div className="grid gap-[0px] sm:grid-cols-[0.95fr_1.15fr] sm:items-start sm:gap-[0px]">
           <div className="mx-auto w-full">
@@ -32,7 +32,7 @@ function AboutUsThirdPart() {
             </div>
           </div>
 
-          <div className="pt-[4px] sm:pt-[8px] sm:pl-[50px]">
+          <div className="pt-[40px] sm:pt-[8px] sm:pl-[50px]">
             <div className="flex items-center gap-[6px]">
                 <img
                 src="/whyChoose.png"

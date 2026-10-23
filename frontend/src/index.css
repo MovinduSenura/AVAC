@@ -41,6 +41,16 @@ a {
   animation: avac-marquee 30s linear infinite;
 }
 
+@keyframes avac-country-roll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
 @keyframes avac-marquee {
   from {
     transform: translateX(0);

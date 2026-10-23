@@ -17,7 +17,11 @@ function FifthPart() {
           </h2>
 
           <p className="mt-[16px] text-[13px] leading-[1.9] text-white/92">
-            Explore overseas opportunities with clear migration <br/> guidance and job placement support. Let us help you <br/> take your next step with confidence.
+            Explore overseas opportunities with clear migration{" "}
+            <br className="hidden sm:block" />
+            guidance and job placement support. Let us help you{" "}
+            <br className="hidden sm:block" />
+            take your next step with confidence.
           </p>
 
           <Link

@@ -202,7 +202,7 @@ function SecondPart() {
         </article>
       </div>
 
-      <div className="mt-[0px] grid overflow-hidden rounded-[28px] bg-[#F1F5EB] sm:grid-cols-[50%_50.5%] sm:rounded-[40px]">
+      <div className="mt-[24px] grid overflow-hidden rounded-[28px] bg-[#F1F5EB] sm:mt-0 sm:grid-cols-[50%_50.5%] sm:rounded-[40px]">
         <div className="px-[24px] pb-[34px] pt-[38px] text-black sm:px-[50px] sm:pb-[54px] sm:pt-[62px]">
           <div className="flex items-center gap-[10px]">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
@@ -216,8 +216,8 @@ function SecondPart() {
           </div>
 
           <h3 className="mt-[14px] text-[34px] font-bold leading-[1.06]">
-            We Provide The Best
-            <span className="block text-[color:var(--avac-gold)]">Service For Consulting</span>
+            We Provide The Best{" "}
+            <span className="text-[color:var(--avac-gold)] sm:block">Service For Consulting</span>
             {/* <span className="block text-[color:var(--avac-gold)]">
               Discover Your
             </span>
@@ -271,7 +271,7 @@ function SecondPart() {
             <p className="mt-[10px] text-[13px] font-bold text-[#000000] sm:text-[14px]">
               Preferred Job & Countries in Europe (Choose 2)
             </p>
-            <div className="mt-[12px] grid w-fit grid-cols-4 items-center gap-x-[28px] gap-y-[10px] sm:gap-x-[42px]">
+            <div className="mt-[12px] grid w-full grid-cols-[repeat(4,48px)] items-center justify-between gap-y-[10px] sm:w-fit sm:grid-cols-4 sm:gap-x-[42px]">
               {countryGroups.map((country) => (
                 <img
                   key={country.code}

@@ -51,7 +51,7 @@ function BlogThirdPart() {
     <section
       id="testimonials"
       ref={sectionRef}
-      className="bg-white px-4 pb-[74px] pt-[46px] text-black sm:px-8 sm:pb-[102px] sm:pt-[68px]"
+      className="bg-white px-4 pb-[74px] pt-[16px] text-black sm:px-8 sm:pb-[102px] sm:pt-[68px]"
     >
       <div className="mx-auto max-w-[1000px]">
         <div className="text-center">
