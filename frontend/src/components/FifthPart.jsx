@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function FifthPart() {
   return (
     <div className="mx-auto grid max-w-[1000px] overflow-hidden rounded-[18px] bg-[color:var(--avac-gold)] text-white sm:grid-cols-2">
@@ -11,26 +13,24 @@ function FifthPart() {
 
         <div className="relative z-10 max-w-[390px]">
           <h2 className="text-[34px] font-bold leading-[1.06] sm:text-[38px]">
-            Let’s Do Great!
+            Your Gateway To A Future Abroad
           </h2>
 
           <p className="mt-[16px] text-[13px] leading-[1.9] text-white/92">
-            Lorem Ipsum is simply dummy text the printing and typese
-            <br />
-            Lorem Ipsum has been the industry&apos;s standard dummy
+            Explore overseas opportunities with clear migration <br/> guidance and job placement support. Let us help you <br/> take your next step with confidence.
           </p>
 
-          <button
-            type="button"
+          <Link
+            to="/contact"
             className="mt-[28px] inline-flex h-[50px] cursor-pointer items-center justify-center gap-[10px] rounded-full bg-black px-[28px] text-[11px] font-semibold text-white"
           >
-            <span>Contact Us</span>
+            <span>Contact Our Team</span>
             <img
               src="/smallArrow.png"
               alt=""
               className="h-[10px] w-[12px] object-contain"
             />
-          </button>
+          </Link>
         </div>
       </div>
 
