@@ -151,9 +151,7 @@ function SecondPart() {
             </span>
           </h2>
           <p className="mt-[14px] max-w-[470px] text-[13px] leading-[1.8] text-[#000000]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            <br />
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+            Your Ambitions. Our Expertise. A World of Possibilities.
           </p>
 
           <div className="mt-[22px] grid gap-x-[26px] gap-y-[18px] text-[13px] leading-[1.75] text-[#000000] sm:grid-cols-2">
@@ -167,7 +165,7 @@ function SecondPart() {
                 <p className="font-semibold text-[#000000]">Visa Guidelines</p>
               </div>
               <p className="mt-[10px]">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                Personalised advice and visa application support.
               </p>
             </div>
 
@@ -179,11 +177,11 @@ function SecondPart() {
                   className="h-[14px] w-[14px] object-contain"
                 />
                 <p className="font-semibold text-[#000000]">
-                  Latest Information
+                  Job Placement
                 </p>
               </div>
               <p className="mt-[10px]">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                Foreign recruitment support.
               </p>
             </div>
           </div>
@@ -230,7 +228,7 @@ function SecondPart() {
 
           <div className="mt-[15px]">
             <p className="text-[14px] font-bold text-[color:var(--avac-gold)]">
-              Dedicated to your success
+              Dedicated To Your Success
             </p>
             <p className="mt-[20px] text-[14px] font-normal text-[#000000]">
               Turning Dreams Into Destinations - Discover Your Next Move.

@@ -63,17 +63,20 @@ function AboutUsSecondPart() {
           </h2>
 
           <p className="mx-auto mt-[28px] max-w-[820px] text-[16px] leading-[1.45] text-white/92 sm:mt-18 sm:text-[19px]">
-            At AVAC, we provide refined work migration solutions grounded in trust,
+            At AVA Consultants (Pvt) Ltd, we help people take meaningful steps towards 
             <br />
-            discretion, and precision. Our approach combines deep industry expertise
+            their future abroad through two dedicated service divisions: AVAC for migration
             <br />
-            with a strong commitment to clarity, ensuring both individuals and
+            consultation and AVAFE for job placement and foreign recruitment.
             <br />
-            organizations receive thoughtful, well-managed support throughout their
             <br />
-            journey. By prioritizing accuracy, professionalism, and lasting relationships,
+            Our approach is built on honest advice, careful preparation, and personal 
             <br />
-            we deliver an experience that is as dependable as it is seamless.
+            attention. Whether you need guidance on a migration application or support
+            <br />
+            finding an overseas employment opportunity, we take time to understand
+            <br />
+            your goals and guide you with clarity and care. 
           </p>
         </div>
 
