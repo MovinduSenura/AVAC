@@ -1,6 +1,6 @@
 function ContactIntro() {
   return (
-    <div className="w-full py-[24px] text-[#111111] sm:py-[36px]">
+    <div className="w-full pt-[24px] pb-0 text-[#111111] sm:py-[36px]">
       <div className="flex items-center gap-[10px]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--avac-gold)]">
             Contact Us
@@ -55,8 +55,8 @@ function ContactIntro() {
           Our philosophy
         </h3>
         <p className="mx-auto mt-[5px] max-w-[620px] text-[13px] leading-[1.8] text-[#000000] sm:text-[14px]">
-          We strongly believe that trust is earned through honesty, clarity <br/> and
-          consistency.
+          We strongly believe that trust is earned through honesty, clarity
+          <br className="hidden sm:block" /> and consistency.
         </p>
       </div>
     </div>

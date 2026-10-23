@@ -11,18 +11,37 @@ const countries = [
 
 function CountryStrip() {
   return (
-    <div className="mx-auto grid w-fit grid-cols-[repeat(4,48px)] items-center justify-items-center gap-x-[24px] gap-y-3 transition-[column-gap] duration-300 ease-out group-hover:gap-x-[28px] motion-reduce:transition-none sm:grid-cols-[repeat(8,48px)] sm:gap-x-[20px] sm:group-hover:gap-x-[24px] lg:gap-x-[85px] lg:group-hover:gap-x-[100px]">
-      {countries.map((country) => (
-        <img
-          key={country.code}
-          src={`/flags/${country.code}.png`}
-          alt={`${country.name} flag`}
-          title={country.name}
-          width={48}
-          height={32}
-          className="h-[32px] w-[48px] object-fill"
-        />
-      ))}
+    <div
+      role="region"
+      aria-label="Destination countries"
+      className="mx-auto w-full overflow-hidden sm:w-fit sm:overflow-visible"
+    >
+      <div className="flex w-max animate-[avac-country-roll_20s_linear_infinite] sm:animate-none motion-reduce:animate-none">
+        {[0, 1, 2].map((copy) => (
+          <div
+            key={copy}
+            aria-hidden={copy > 0 ? true : undefined}
+            className={`flex shrink-0 items-center gap-x-[24px] pr-[24px] ${
+              copy > 0
+                ? "sm:hidden"
+                : "sm:grid sm:grid-cols-[repeat(8,48px)] sm:justify-items-center sm:gap-x-[20px] sm:pr-0 sm:transition-[column-gap] sm:duration-300 sm:ease-out sm:group-hover:gap-x-[24px] motion-reduce:transition-none lg:gap-x-[85px] lg:group-hover:gap-x-[100px]"
+            }`}
+          >
+            {countries.map((country) => (
+              <img
+                key={country.code}
+                src={`/flags/${country.code}.png`}
+                alt={copy === 0 ? `${country.name} flag` : ""}
+                title={country.name}
+                width={48}
+                height={32}
+                draggable={false}
+                className="h-[32px] w-[48px] shrink-0 object-fill"
+              />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

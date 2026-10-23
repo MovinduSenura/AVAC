@@ -32,9 +32,13 @@ function ThirdPart() {
               className="pointer-events-none absolute right-[0px] top-[8px] h-[170px] w-[200px] object-contain opacity-20 sm:right-[18px] sm:top-[0px] sm:h-[230px] sm:w-[270px]"
             />
             <p className="relative z-10 max-w-[492px] text-[16px] leading-[30px] text-[color:var(--avac-gold)] sm:text-[20px] sm:leading-[42px]">
-              Leverage agile frameworks to provide a <br /> robust synopsis for
-              strategy foster Leverage <br /> agile frameworks to provide a
-              robust <br /> synopsis for go for strategy foster
+              Leverage agile frameworks to provide a{" "}
+              <br className="hidden sm:block" />
+              robust synopsis for strategy foster Leverage{" "}
+              <br className="hidden sm:block" />
+              agile frameworks to provide a robust{" "}
+              <br className="hidden sm:block" />
+              synopsis for go for strategy foster
             </p>
           </div>
           <div className="relative z-10 mt-[28px] flex flex-col gap-[18px] sm:mt-[38px] sm:flex-row sm:items-center sm:justify-between">

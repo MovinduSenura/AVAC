@@ -56,7 +56,7 @@ function SidebarCard({ title, children }) {
 
 function BlogSecondPart() {
   return (
-    <section className="bg-white px-4 pb-[78px] pt-[42px] text-black sm:px-8 sm:pb-[100px] sm:pt-[62px]">
+    <section className="bg-white px-4 pb-[24px] pt-0 text-black sm:px-8 sm:pb-[100px]">
       <div className="mx-auto max-w-[1000px]">
         <div className="grid gap-[32px] sm:grid-cols-[1.55fr_0.75fr] sm:items-start sm:gap-[28px]">
           <div>

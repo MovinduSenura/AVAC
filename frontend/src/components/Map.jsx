@@ -4,7 +4,7 @@ const locationQuery = encodeURIComponent(
 
 function Map() {
   return (
-    <section className="bg-white pt-[8px]">
+    <section className="bg-transparent pt-[24px] sm:bg-white sm:pt-[8px]">
       <div className="mx-auto max-w-full overflow-hidden">
         <iframe
           title="AVA Consultants location map"

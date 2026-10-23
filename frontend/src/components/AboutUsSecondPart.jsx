@@ -62,22 +62,24 @@ function AboutUsSecondPart() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-[28px] max-w-[820px] text-[16px] leading-[1.45] text-white/92 sm:mt-18 sm:text-[19px]">
-            At AVA Consultants (Pvt) Ltd, we help people take meaningful steps towards 
-            <br />
-            their future abroad through two dedicated service divisions: AVAC for migration
-            <br />
-            consultation and AVAFE for job placement and foreign recruitment.
-            <br />
-            <br />
-            Our approach is built on honest advice, careful preparation, and personal 
-            <br />
-            attention. Whether you need guidance on a migration application or support
-            <br />
-            finding an overseas employment opportunity, we take time to understand
-            <br />
-            your goals and guide you with clarity and care. 
-          </p>
+          <div className="mx-auto mt-[28px] max-w-[820px] space-y-[24px] text-center text-balance text-[16px] leading-[1.6] text-white/92 sm:mt-18 sm:space-y-[27.55px] sm:text-wrap sm:text-[19px] sm:leading-[1.45]">
+            <p>
+              At AVA Consultants (Pvt) Ltd, we help people take meaningful steps towards{" "}
+              <br className="hidden sm:block" />
+              their future abroad through two dedicated service divisions: AVAC for migration{" "}
+              <br className="hidden sm:block" />
+              consultation and AVAFE for job placement and foreign recruitment.
+            </p>
+            <p>
+              Our approach is built on honest advice, careful preparation, and personal{" "}
+              <br className="hidden sm:block" />
+              attention. Whether you need guidance on a migration application or support{" "}
+              <br className="hidden sm:block" />
+              finding an overseas employment opportunity, we take time to understand{" "}
+              <br className="hidden sm:block" />
+              your goals and guide you with clarity and care.
+            </p>
+          </div>
         </div>
 
         <div className="mx-auto mt-[56px] grid w-full gap-[44px] sm:mt-[88px] sm:grid-cols-3 sm:gap-[54px]">
