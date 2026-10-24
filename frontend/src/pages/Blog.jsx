@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import BlogFirstPart from "../components/BlogFirstPart";
 import BlogSecondPart from "../components/BlogSecondPart";
 import BlogThirdPart from "../components/BlogThirdPart";
+import BlogFourthPart from "../components/BlogFourthPart";
 import SeventhPart from "../components/SeventhPart";
 import Footer from "../components/Footer";
 
@@ -30,6 +31,10 @@ function Blog() {
 
       <section>
         <BlogThirdPart />
+      </section>
+
+      <section>
+        <BlogFourthPart />
       </section>
 
       <section className="overflow-hidden bg-[color:var(--avac-gold)] py-[15px] text-white sm:py-[17px]">

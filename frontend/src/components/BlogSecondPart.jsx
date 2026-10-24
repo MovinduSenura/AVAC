@@ -84,7 +84,7 @@ function BlogSecondPart() {
                       />
                       <span>{postMeta.date}</span>
                     </span>
-                    <span className="flex items-center gap-[3px]">
+                    {/* <span className="flex items-center gap-[3px]">
                       <img
                         src="/blogComments.png"
                         alt=""
@@ -92,7 +92,7 @@ function BlogSecondPart() {
                         className="h-[14px] w-[14px] object-contain"
                       />
                       <span>{postMeta.comments}</span>
-                    </span>
+                    </span> */}
                   </div>
 
                   <h2 className="mt-[14px] max-w-[600px] text-[34px] font-bold leading-[1.06] text-[#000000]">

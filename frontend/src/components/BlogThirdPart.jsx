@@ -56,7 +56,7 @@ function BlogThirdPart() {
       <div className="mx-auto max-w-[1000px]">
         <div className="text-center">
           <h2 className="text-[34px] font-bold leading-[1.06] text-[color:var(--avac-gold)]">
-            Escape to Extraordinary
+            Escape To Extraordinary
             <span className="block">Where Every Journey</span>
           </h2>
         </div>
