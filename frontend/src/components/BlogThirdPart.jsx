@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import TestimonialAvatar from "./TestimonialAvatar";
 
 const testimonialCards = [
   {
@@ -37,9 +38,31 @@ const testimonialCards = [
 const quoteCopy =
   "We have been operating for over an go providin top-notch services to our is a clients and build strong track record in the industry.We have been operating in for over a decad providi ina";
 
-function BlogThirdPart() {
+const testimonialsPerPage = 4;
+
+function BlogThirdPart({ postedTestimonials = [], currentPage = 1, onPageChange }) {
   const sectionRef = useRef(null);
+  const latestCardRef = useRef(null);
   const { hash, key } = useLocation();
+  const latestTestimonialId = postedTestimonials[0]?.id;
+  const cards = [...postedTestimonials, ...testimonialCards];
+  const totalPages = Math.ceil(cards.length / testimonialsPerPage);
+  const activePage = Math.min(Math.max(currentPage, 1), totalPages);
+  const firstCardIndex = (activePage - 1) * testimonialsPerPage;
+  const visibleCards = cards.slice(firstCardIndex, firstCardIndex + testimonialsPerPage);
+
+  function changePage(page) {
+    if (page < 1 || page > totalPages || page === activePage) return;
+    onPageChange(page);
+    sectionRef.current?.scrollIntoView({ block: "start" });
+  }
+
+  useEffect(() => {
+    if (latestTestimonialId) {
+      latestCardRef.current?.scrollIntoView({ block: "center" });
+      latestCardRef.current?.focus({ preventScroll: true });
+    }
+  }, [latestTestimonialId]);
 
   useEffect(() => {
     if (hash === "#testimonials") {
@@ -56,16 +79,21 @@ function BlogThirdPart() {
       <div className="mx-auto max-w-[1000px]">
         <div className="text-center">
           <h2 className="text-[34px] font-bold leading-[1.06] text-[color:var(--avac-gold)]">
-            Escape to Extraordinary
+            Escape To Extraordinary
             <span className="block">Where Every Journey</span>
           </h2>
         </div>
 
-        <div className="mt-[36px] grid gap-[18px] sm:mt-[42px] sm:grid-cols-2 sm:gap-[22px]">
-          {testimonialCards.map((card) => (
+        <div
+          id="testimonial-list"
+          className="mt-[36px] grid gap-[18px] sm:mt-[42px] sm:grid-cols-2 sm:gap-[22px]"
+        >
+          {visibleCards.map((card) => (
             <article
-              key={card.name}
-              className={`rounded-[14px] px-[22px] pb-[24px] pt-[20px] shadow-[0_16px_42px_rgba(61,47,11,0.06)] sm:rounded-[16px] sm:px-[38px] sm:pb-[40px] sm:pt-[38px] ${
+              key={card.id || card.name}
+              ref={card.id && card.id === latestTestimonialId ? latestCardRef : null}
+              tabIndex={-1}
+              className={`min-w-0 break-words rounded-[14px] px-[22px] pb-[24px] pt-[20px] shadow-[0_16px_42px_rgba(61,47,11,0.06)] focus-visible:outline-2 focus-visible:outline-[color:var(--avac-gold)] sm:rounded-[16px] sm:px-[38px] sm:pb-[40px] sm:pt-[38px] ${
                 card.tinted ? "bg-[#F1F5EB]" : "bg-white"
               }`}
             >
@@ -76,13 +104,13 @@ function BlogThirdPart() {
                 className="h-[18px] w-[28px] object-contain sm:h-[50px] sm:w-[62px]"
               />
 
-              <p className="mt-[10px] max-w-[480px] text-[18px] leading-[1.9] text-[#727272] sm:text-[19px]">
-                {quoteCopy}
+              <p className="mt-[10px] max-w-[480px] whitespace-pre-line text-[18px] leading-[1.9] text-[#727272] sm:text-[19px]">
+                {card.story ?? quoteCopy}
               </p>
 
               <div className="mt-[22px] flex items-center gap-[14px]">
-                <span className="h-[48px] w-[48px] rounded-full bg-[#D9D9D9]" />
-                <div>
+                <TestimonialAvatar src={card.photo} name={card.name} />
+                <div className="min-w-0">
                   <p className="text-[13px] font-semibold text-[color:var(--avac-gold)] sm:text-[14px]">
                     {card.name}
                   </p>
@@ -95,36 +123,63 @@ function BlogThirdPart() {
           ))}
         </div>
 
-        <div className="mt-[60px] flex items-center justify-center gap-[10px]">
+        <nav
+          aria-label="Testimonial pages"
+          className="mt-[60px] flex flex-wrap items-center justify-center gap-[10px]"
+        >
+          {activePage > 1 && (
+            <button
+              type="button"
+              onClick={() => changePage(activePage - 1)}
+              aria-label="Previous testimonial page"
+              aria-controls="testimonial-list"
+              className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[#E3DBD8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--avac-gold)]"
+            >
+              <img
+                src="/brownArrow.png"
+                alt=""
+                aria-hidden="true"
+                className="h-[12px] w-[12px] rotate-180 object-contain"
+              />
+            </button>
+          )}
+          {Array.from({ length: totalPages }, (_, index) => {
+            const page = index + 1;
+
+            return (
+              <button
+                key={page}
+                type="button"
+                onClick={() => changePage(page)}
+                aria-label={`Go to testimonial page ${page}`}
+                aria-current={page === activePage ? "page" : undefined}
+                aria-controls="testimonial-list"
+                className={`flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border text-[13px] font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--avac-gold)] ${
+                  page === activePage
+                    ? "border-[color:var(--avac-gold)] text-[color:var(--avac-gold)]"
+                    : "border-[#E3DBD8] text-[#734611]"
+                }`}
+              >
+                {page}
+              </button>
+            );
+          })}
           <button
             type="button"
-            className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[color:var(--avac-gold)] text-[13px] font-semibold text-[color:var(--avac-gold)]"
-          >
-            1
-          </button>
-          <button
-            type="button"
-            className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[#E3DBD8] text-[13px] font-semibold text-[#734611]"
-          >
-            2
-          </button>
-          <button
-            type="button"
-            className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[#E3DBD8] text-[13px] font-semibold text-[#734611]"
-          >
-            3
-          </button>
-          <button
-            type="button"
-            className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[#E3DBD8]"
+            onClick={() => changePage(activePage + 1)}
+            disabled={activePage === totalPages}
+            aria-label="Next testimonial page"
+            aria-controls="testimonial-list"
+            className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-[4px] border border-[#E3DBD8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--avac-gold)] disabled:cursor-not-allowed disabled:opacity-40"
           >
             <img
               src="/brownArrow.png"
-              alt="Next page"
+              alt=""
+              aria-hidden="true"
               className="h-[12px] w-[12px] object-contain"
             />
           </button>
-        </div>
+        </nav>
       </div>
     </section>
   );

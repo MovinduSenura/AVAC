@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import TestimonialAvatar from "./TestimonialAvatar";
+
 function ThirdPart() {
   return (
     <div className="mx-auto max-w-[1000px]">
@@ -43,7 +46,7 @@ function ThirdPart() {
           </div>
           <div className="relative z-10 mt-[28px] flex flex-col gap-[18px] sm:mt-[38px] sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-[14px]">
-              <span className="h-[48px] w-[48px] rounded-full bg-[#D9D9D9]" />
+              <TestimonialAvatar name="Eleanor Pena" />
               <div>
                 <p className="text-[15px] font-semibold text-[color:var(--avac-gold)]">
                   Eleanor Pena
@@ -82,8 +85,8 @@ function ThirdPart() {
             alt="Farmer holding fresh produce"
             className="h-[360px] w-full object-cover sm:h-[520px]"
           />
-          <button
-            type="button"
+          <Link
+            to="/blog#testimonials"
             className="absolute bottom-[18px] right-[18px] inline-flex h-[50px] cursor-pointer items-center justify-center gap-[10px] rounded-full bg-white px-[25px] text-[11px] font-semibold text-[color:var(--avac-gold)]"
           >
             Read More
@@ -94,7 +97,7 @@ function ThirdPart() {
                 className="mt-[2px] block h-[10px] w-[12px] object-contain"
               />
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
