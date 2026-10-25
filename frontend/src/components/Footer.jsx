@@ -133,7 +133,9 @@ function Footer() {
         <div className="mt-[22px] flex flex-col items-center justify-between gap-[12px] text-center text-[12px] text-white/45 sm:flex-row sm:text-left">
           <p>&copy; AVA 2026 | All Rights Reserved</p>
           <div className="flex flex-wrap justify-center gap-[18px] sm:justify-start sm:gap-[22px]">
-            <span>Terms & Conditions</span>
+            <Link to="/terms-and-conditions" className="transition-colors hover:text-white">
+              Terms & Conditions
+            </Link>
             <span>Privacy Policy</span>
             <Link to="/contact" className="transition-colors hover:text-white">
               Contact Us
