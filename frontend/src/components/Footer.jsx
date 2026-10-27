@@ -8,8 +8,8 @@ const usefulLinks = [
 const socialLinks = [
   { icon: "/fb.svg", label: "Facebook", href: "https://www.facebook.com/share/1EWo837528/?mibextid=wwXIfr" },
   { icon: "/insta.svg", label: "Instagram", href: "https://www.instagram.com/ava.consultants?xtok=YzdyeTE1NGdodDlp" },
-  { icon: "/twitter.svg", label: "Twitter" },
-  { icon: "/linkedin.svg", label: "LinkedIn" },
+  // { icon: "/twitter.svg", label: "Twitter" },
+  // { icon: "/linkedin.svg", label: "LinkedIn" },
 ];
 
 function Footer() {

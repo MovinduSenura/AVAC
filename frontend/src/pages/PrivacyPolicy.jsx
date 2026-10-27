@@ -22,7 +22,7 @@ const sections = [
       </>,
       "In this Policy, “we”, “us” and “our” mean the company responsible for the relevant processing. Your quotation, service agreement or receipt identifies your service provider. That company is generally responsible for deciding why and how your service information is used. If both companies are involved, we will explain their respective roles where required. Sharing the AVA brand does not give either company unrestricted access to the other company’s client records.",
       <>
-        This Policy covers personal information collected through <a href="https://avac-murex.vercel.app/" className={`${linkClassName} break-words text-red-600`}>https://avac-murex.vercel.app/</a>, <span className="text-red-600">enquiries</span>, consultations and related migration and recruitment services, whether supplied online, by email, telephone, messaging applications or in person.
+        This Policy covers personal information collected through <a href="https://www.avaconsultants.org/" className={`${linkClassName} break-words text-red-600`}>www.avaconsultants.org</a>, <span className="text-red-600">enquiries</span>, consultations and related migration and recruitment services, whether supplied online, by email, telephone, messaging applications or in person.
       </>,
     ],
   },
