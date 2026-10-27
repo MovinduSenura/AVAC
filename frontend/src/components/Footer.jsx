@@ -6,8 +6,8 @@ const usefulLinks = [
   { label: "Testimonials", href: "/blog#testimonials" },
 ];
 const socialLinks = [
-  { icon: "/fb.svg", label: "Facebook" },
-  { icon: "/insta.svg", label: "Instagram" },
+  { icon: "/fb.svg", label: "Facebook", href: "https://www.facebook.com/share/1EWo837528/?mibextid=wwXIfr" },
+  { icon: "/insta.svg", label: "Instagram", href: "https://www.instagram.com/ava.consultants?xtok=YzdyeTE1NGdodDlp" },
   { icon: "/twitter.svg", label: "Twitter" },
   { icon: "/linkedin.svg", label: "LinkedIn" },
 ];
@@ -39,7 +39,9 @@ function Footer() {
               {socialLinks.map((item) => (
                 <a
                   key={item.label}
-                  href="#"
+                  href={item.href || "#"}
+                  target={item.href ? "_blank" : undefined}
+                  rel={item.href ? "noopener noreferrer" : undefined}
                   aria-label={item.label}
                   className="transition hover:opacity-80"
                 >
@@ -125,8 +127,8 @@ function Footer() {
             AVA Consultants (Pvt) Ltd : PV 00299042
           </p>
           <p className="whitespace-nowrap font-normal text-white">
-            AVA Foreign Employment (Pvt) Ltd :{" "}
-            <span className="text-red-600 ">(Registration in Process)</span>
+            AVA Foreign Employment (Pvt) Ltd : PV 00369436
+            {/* <span className="text-red-600 ">(Registration in Process)</span> */}
           </p>
         </div>
 
@@ -136,7 +138,9 @@ function Footer() {
             <Link to="/terms-and-conditions" className="transition-colors hover:text-white">
               Terms & Conditions
             </Link>
-            <span>Privacy Policy</span>
+            <Link to="/privacy-policy" className="transition-colors hover:text-white">
+              Privacy Policy
+            </Link>
             <Link to="/contact" className="transition-colors hover:text-white">
               Contact Us
             </Link>

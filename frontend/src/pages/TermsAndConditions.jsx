@@ -268,7 +268,7 @@ function TermsAndConditions() {
             </div>
             <div>
               <dt className="font-semibold">Last updated</dt>
-              <dd className="text-[#595959]"><time dateTime="2026-11-01">1 November 2026</time></dd>
+              <dd className="text-[#595959]"><time dateTime="2026-11-01">27 October 2026</time></dd>
             </div>
           </dl>
 

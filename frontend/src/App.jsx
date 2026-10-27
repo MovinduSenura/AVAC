@@ -5,6 +5,7 @@ import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
 import Avafe from "./pages/Avafe";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/avafe" element={<Avafe />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </BrowserRouter>
     </>
