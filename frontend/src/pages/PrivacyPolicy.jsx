@@ -194,7 +194,7 @@ function PrivacyPolicy() {
           </div>
 
           <article aria-label="Privacy Policy" className="mt-[40px] space-y-[32px] sm:mt-[48px] sm:space-y-[40px]">
-            <p className="text-justify text-[15px] leading-[1.9] text-[#4B4B4B] sm:text-[16px]">
+            <p className="text-left text-[15px] leading-[1.9] text-[#4B4B4B] sm:text-[16px]">
               This Policy explains how we collect, use, share and protect personal information when you visit our website or use our migration consultation and foreign recruitment services. It also explains how to contact us about your information. Please read it alongside our <Link to="/terms-and-conditions" className={linkClassName}>Terms and Conditions</Link> and any service-specific privacy notice.
             </p>
             {sections.map((section, index) => (
@@ -202,7 +202,7 @@ function PrivacyPolicy() {
                 <h2 id={`privacy-heading-${index + 1}`} className="text-[22px] font-bold leading-[1.4] text-[color:var(--avac-gold)] sm:text-[24px]">
                   {index + 1}. {section.title}
                 </h2>
-                <div className={`mt-[16px] space-y-[14px] text-justify text-[15px] text-[#4B4B4B] sm:text-[16px] ${index === sections.length - 1 ? "leading-[1.5]" : "leading-[1.9]"}`}>
+                <div className={`mt-[16px] space-y-[14px] text-left text-[15px] text-[#4B4B4B] sm:text-[16px] ${index === sections.length - 1 ? "leading-[1.5]" : "leading-[1.9]"}`}>
                   {section.blocks.map((block, blockIndex) => (
                     Array.isArray(block) ? (
                       <ul key={blockIndex} className="list-disc space-y-[6px] pl-[24px] marker:text-[color:var(--avac-gold)]">
