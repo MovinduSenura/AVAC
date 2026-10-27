@@ -63,8 +63,8 @@ function CompanySection() {
             <p className="text-[12px] font-semibold uppercase text-[color:var(--avac-gold)]">
               AVA Foreign Employment (Pvt) Ltd
             </p>
-            <p className="mt-[8px] text-[12px] font-semibold text-[#D6AC6A]">
-              BR: Registration in Process
+            <p className="mt-[8px] text-[12px] font-semibold text-[color:var(--avac-gold)]">
+              BR: PV 00369436
             </p>
             <h3 className="mt-[16px] text-[20px] font-bold leading-[1.4]">
               Foreign Employment & Recruitment
