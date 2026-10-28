@@ -41,6 +41,18 @@ a {
   animation: avac-marquee 30s linear infinite;
 }
 
+@media (min-width: 40rem) {
+  .about-collage-image {
+    transform: var(--collage-transform);
+    opacity: var(--collage-opacity);
+    will-change: transform, opacity;
+    transition-property: transform, opacity;
+    transition-duration: 760ms, 460ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-out;
+    transition-delay: var(--collage-delay);
+  }
+}
+
 @keyframes avac-country-roll {
   from {
     transform: translateX(0);
