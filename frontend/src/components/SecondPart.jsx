@@ -56,7 +56,8 @@ const aboutCollageImages = [
     key: "experience",
     src: "/abtDown.png",
     alt: "10 plus years of experience badge",
-    className: "left-[7.6%] top-[59.2%] w-[29.9%] rounded-[24px]",
+    className:
+      "left-[7.6%] top-[calc(59.2%+12px)] w-[29.9%] rounded-[24px] sm:top-[59.2%]",
     move: "translate3d(0, 120%, 0)",
     delay: 125,
   },
@@ -113,18 +114,13 @@ function SecondPart() {
                 src={image.src}
                 alt={image.alt}
                 aria-hidden={image.alt ? undefined : "true"}
-                className={`absolute h-auto transform-gpu ${image.className}`}
+                className={`about-collage-image absolute h-auto ${image.className}`}
                 style={{
-                  transform: isAboutCollageHovered
+                  "--collage-transform": isAboutCollageHovered
                     ? image.move
                     : "translate3d(0, 0, 0)",
-                  opacity: isAboutCollageHovered ? 0 : 1,
-                  willChange: "transform, opacity",
-                  transitionProperty: "transform, opacity",
-                  transitionDuration: "760ms, 460ms",
-                  transitionTimingFunction:
-                    "cubic-bezier(0.16, 1, 0.3, 1), ease-out",
-                  transitionDelay: isAboutCollageHovered
+                  "--collage-opacity": isAboutCollageHovered ? 0 : 1,
+                  "--collage-delay": isAboutCollageHovered
                     ? `${image.delay}ms, ${image.delay + 140}ms`
                     : "0ms, 0ms",
                 }}
