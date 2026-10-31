@@ -1,6 +1,13 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import BlogComments from "./BlogComments";
+import {
+  fetchApprovedComments,
+  fetchPublishedPosts,
+  formatPostDate,
+} from "../lib/publicApi";
 
-const articles = [
+// Sample content, shown until posts are published from the admin panel.
+const sampleArticles = [
   {
     id: "egypt",
     title: "Wonders of Ancient Civilizations A Journey Through Egypt",
@@ -14,16 +21,15 @@ const articles = [
 const postMeta = {
   author: "By admin",
   date: "October 19, 2022",
-  comments: "Comments (05)",
 };
 
-const popularPosts = [
+const samplePopularPosts = [
   "Find Your Adventure Live Your Passion",
   "Travel Beyond Your Imagination",
   "Adventure Awaits Around Every Corner",
 ];
 
-const categories = [
+const sampleCategories = [
   "Flight Booking",
   "Vacation Packages",
   "Car Rental Services",
@@ -32,7 +38,7 @@ const categories = [
   "Insurance Services",
 ];
 
-const tags = [
+const sampleTags = [
   "Travel Planning",
   "Safety Guides",
   "Spa Retreats",
@@ -42,7 +48,7 @@ const tags = [
   "Travel Programs",
 ];
 
-const excerpt =
+const sampleExcerpt =
   "Aliquam eros justo, posuere loborti viverra laoreet matti ullamcorper posuere viverra. Aliquam eros justo, posuere lobortis viverra laoreet augue mattis fermentum ullamcorper viverra laoreet Aliquam eros justo, posuere loborti viverra laoreet matti ullamcorper posuere viverra. Aliquam eros justo, posuere lobortis viverra laoreet augue mattis fermentum ullamcorper viverra laoreet Aliquam eros justo, posuere loborti";
 
 const postsPerPage = 2;
@@ -60,7 +66,66 @@ function SidebarCard({ title, children }) {
   );
 }
 
+function uniqueValues(values) {
+  return [...new Set(values.map((value) => value?.trim()).filter(Boolean))];
+}
+
 function BlogSecondPart() {
+  const [posts, setPosts] = useState(null);
+  const [commentsByPost, setCommentsByPost] = useState({});
+
+  useEffect(() => {
+    let isActive = true;
+    fetchPublishedPosts().then(async (rows) => {
+      if (!isActive || !rows?.length) return;
+      setPosts(rows);
+      const comments = await fetchApprovedComments(rows.map((post) => post.id));
+      if (!isActive) return;
+      const grouped = {};
+      for (const comment of comments) {
+        (grouped[comment.post_id] ??= []).push(comment);
+      }
+      setCommentsByPost(grouped);
+    });
+    return () => {
+      isActive = false;
+    };
+  }, []);
+
+  const hasPosts = Boolean(posts);
+  const articles = hasPosts
+    ? posts.map((post) => ({
+        id: post.id,
+        title: post.title,
+        content: post.content,
+        cover: post.cover_image_url,
+        author: `By ${post.author_name}`,
+        date: formatPostDate(post.published_at),
+      }))
+    : sampleArticles.map((article) => ({
+        ...article,
+        content: sampleExcerpt,
+        author: postMeta.author,
+        date: postMeta.date,
+      }));
+  const popularPosts = hasPosts
+    ? (posts.some((post) => post.is_popular)
+        ? posts.filter((post) => post.is_popular)
+        : posts
+      )
+        .slice(0, 3)
+        .map((post) => ({
+          id: post.id,
+          title: post.title,
+          cover: post.cover_image_url,
+          date: formatPostDate(post.published_at),
+        }))
+    : samplePopularPosts.map((title) => ({ id: title, title, date: postMeta.date }));
+  const categories = hasPosts
+    ? uniqueValues(posts.map((post) => post.category))
+    : sampleCategories;
+  const tags = hasPosts ? uniqueValues(posts.flatMap((post) => post.tags ?? [])) : sampleTags;
+
   const [expandedPosts, setExpandedPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
@@ -166,7 +231,15 @@ function BlogSecondPart() {
               )}
               {visibleArticles.map((article) => (
                 <article key={article.id}>
-                  <div className="h-[220px] rounded-[10px] bg-[#D9D9D9] sm:h-[312px]" />
+                  <div className="h-[220px] overflow-hidden rounded-[10px] bg-[#D9D9D9] sm:h-[312px]">
+                    {article.cover && (
+                      <img
+                        src={article.cover}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    )}
+                  </div>
 
                   <div className="mt-[12px] flex flex-wrap items-center gap-x-[18px] gap-y-[8px] text-[12px] text-[#111214]">
                     <span className="flex items-center gap-[5px]">
@@ -176,7 +249,7 @@ function BlogSecondPart() {
                         aria-hidden="true"
                         className="h-[11px] w-[11px] object-contain"
                       />
-                      <span>{postMeta.author}</span>
+                      <span>{article.author}</span>
                     </span>
                     <span className="flex items-center gap-[3px]">
                       <img
@@ -185,17 +258,22 @@ function BlogSecondPart() {
                         aria-hidden="true"
                         className="h-[11px] w-[11px] object-contain"
                       />
-                      <span>{postMeta.date}</span>
+                      <span>{article.date}</span>
                     </span>
-                    {/* <span className="flex items-center gap-[3px]">
-                      <img
-                        src="/blogComments.png"
-                        alt=""
-                        aria-hidden="true"
-                        className="h-[14px] w-[14px] object-contain"
-                      />
-                      <span>{postMeta.comments}</span>
-                    </span> */}
+                    {hasPosts && (
+                      <span className="flex items-center gap-[3px]">
+                        <img
+                          src="/blogComments.png"
+                          alt=""
+                          aria-hidden="true"
+                          className="h-[14px] w-[14px] object-contain"
+                        />
+                        <span>
+                          Comments (
+                          {String(commentsByPost[article.id]?.length ?? 0).padStart(2, "0")})
+                        </span>
+                      </span>
+                    )}
                   </div>
 
                   <h2 className="mt-[14px] max-w-[600px] text-[34px] font-bold leading-[1.06] text-[#000000]">
@@ -204,9 +282,9 @@ function BlogSecondPart() {
 
                   <p
                     id={`post-content-${article.id}`}
-                    className={`mt-[14px] max-w-[640px] text-[12px] leading-[1.9] text-[#727272] ${expandedPosts.includes(article.id) ? "" : "line-clamp-3"}`}
+                    className={`mt-[14px] max-w-[640px] whitespace-pre-line text-[12px] leading-[1.9] text-[#727272] ${expandedPosts.includes(article.id) ? "" : "line-clamp-3"}`}
                   >
-                    {excerpt}
+                    {article.content}
                   </p>
 
                   <button
@@ -226,6 +304,13 @@ function BlogSecondPart() {
                       className={`mt-[2px] h-[9px] w-[10px] object-contain ${expandedPosts.includes(article.id) ? "rotate-180" : ""}`}
                     />
                   </button>
+
+                  {hasPosts && expandedPosts.includes(article.id) && (
+                    <BlogComments
+                      postId={article.id}
+                      comments={commentsByPost[article.id] ?? []}
+                    />
+                  )}
                 </article>
               ))}
             </div>
@@ -295,8 +380,12 @@ function BlogSecondPart() {
             <SidebarCard title="Popular Post">
               <div className="space-y-[12px]">
                 {popularPosts.map((post) => (
-                  <div key={post} className="flex gap-[12px]">
-                    <div className="h-[59px] w-[59px] rounded-[12px] bg-[#D9D9D9]" />
+                  <div key={post.id} className="flex gap-[12px]">
+                    <div className="h-[59px] w-[59px] shrink-0 overflow-hidden rounded-[12px] bg-[#D9D9D9]">
+                      {post.cover && (
+                        <img src={post.cover} alt="" className="h-full w-full object-cover" />
+                      )}
+                    </div>
                     <div>
                       <div className="flex items-center gap-[4px] text-[12px] text-[#727272]">
                         <img
@@ -305,10 +394,10 @@ function BlogSecondPart() {
                           aria-hidden="true"
                           className="h-[12px] w-[12px] object-contain"
                         />
-                        <span>October 19, 2022</span>
+                        <span>{post.date}</span>
                       </div>
                       <p className="mt-[4px] max-w-[160px] text-[13px] leading-[1.45] font-semibold text-[color:var(--avac-gold)]">
-                        {post}
+                        {post.title}
                       </p>
                     </div>
                   </div>

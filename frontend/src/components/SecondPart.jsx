@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { isValidEmail, subscribe } from "../lib/publicApi";
 
 const servicePoints = [
   "Where trust meets opportunity",
@@ -69,10 +70,44 @@ function SecondPart() {
   const [selectedLeftCountry, setSelectedLeftCountry] = useState("");
   const [selectedRightCountry, setSelectedRightCountry] = useState("");
   const [isAboutCollageHovered, setIsAboutCollageHovered] = useState(false);
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [subscribeMessage, setSubscribeMessage] = useState("");
   const leftCountryRef = useRef(null);
   const rightCountryRef = useRef(null);
 
   const countryOptions = countryGroups.map((country) => country.name);
+
+  async function handleCountriesSubmit(event) {
+    event.preventDefault();
+    if (isSubscribing) return;
+
+    const form = event.currentTarget;
+    const email = new FormData(form).get("email").trim();
+    const countries = [selectedLeftCountry, selectedRightCountry].filter(Boolean);
+
+    if (countries.length === 0) {
+      setSubscribeMessage("Please choose at least one country.");
+      return;
+    }
+    if (!isValidEmail(email)) {
+      setSubscribeMessage("Please enter a valid email address.");
+      return;
+    }
+
+    setIsSubscribing(true);
+    setSubscribeMessage("");
+    try {
+      await subscribe({ email, countries, source: "preferred_countries" });
+      form.reset();
+      setSelectedLeftCountry("");
+      setSelectedRightCountry("");
+      setSubscribeMessage("Thank you! We will send you job updates for your chosen countries.");
+    } catch {
+      setSubscribeMessage("Something went wrong. Please try again.");
+    } finally {
+      setIsSubscribing(false);
+    }
+  }
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -281,7 +316,10 @@ function SecondPart() {
               ))}
             </div>
 
-            <form className="relative z-10 mt-[16px] grid max-w-full gap-[14px] sm:w-[640px] sm:grid-cols-[250px_250px] sm:gap-x-[0px] sm:gap-y-[20px]">
+            <form
+              onSubmit={handleCountriesSubmit}
+              noValidate
+              className="relative z-10 mt-[16px] grid max-w-full gap-[14px] sm:w-[640px] sm:grid-cols-[250px_250px] sm:gap-x-[0px] sm:gap-y-[20px]">
               <div
                 ref={leftCountryRef}
                 className="relative w-full sm:max-w-[230px]"
@@ -395,16 +433,25 @@ function SecondPart() {
               <div className="col-span-full flex flex-col gap-[10px] sm:flex-row sm:items-center">
                 <input
                   type="email"
+                  name="email"
+                  aria-label="Email address"
                   placeholder="Enter Email"
                   className="h-[38px] w-full rounded-full border border-white bg-transparent px-[14px] text-[11px] text-white outline-none placeholder:text-white sm:w-[300px]"
                 />
                 <button
-                  type="button"
-                  className="h-[38px] w-[98px] rounded-full bg-white px-[10px] text-[11px] font-semibold text-[#034833] cursor-pointer"
+                  type="submit"
+                  disabled={isSubscribing}
+                  className="h-[38px] w-[98px] rounded-full bg-white px-[10px] text-[11px] font-semibold text-[#034833] cursor-pointer disabled:cursor-wait disabled:opacity-60"
                 >
-                  Contact Us
+                  {isSubscribing ? "Sending..." : "Contact Us"}
                 </button>
               </div>
+              <p
+                role="status"
+                className="col-span-full text-[12px] font-semibold text-white empty:hidden"
+              >
+                {subscribeMessage}
+              </p>
             </form>
           </div>
         </div>

@@ -10,16 +10,7 @@ import Footer from "../components/Footer";
 
 function Blog() {
   const { hash, key } = useLocation();
-  const [postedTestimonials, setPostedTestimonials] = useState([]);
   const [testimonialPage, setTestimonialPage] = useState(1);
-
-  function addTestimonial(testimonial) {
-    setPostedTestimonials((current) => [
-      { ...testimonial, id: crypto.randomUUID(), tinted: true },
-      ...current,
-    ]);
-    setTestimonialPage(1);
-  }
 
   useEffect(() => {
     if (!hash) {
@@ -41,14 +32,13 @@ function Blog() {
 
       <section>
         <BlogThirdPart
-          postedTestimonials={postedTestimonials}
           currentPage={testimonialPage}
           onPageChange={setTestimonialPage}
         />
       </section>
 
       <section>
-        <BlogFourthPart onPost={addTestimonial} />
+        <BlogFourthPart />
       </section>
 
       <section className="overflow-hidden bg-[color:var(--avac-gold)] py-[15px] text-white sm:py-[17px]">

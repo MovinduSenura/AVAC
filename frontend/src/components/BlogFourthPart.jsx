@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import TestimonialAvatar from "./TestimonialAvatar";
+import { submitTestimonial } from "../lib/publicApi";
+import { validateImage } from "../lib/supabase";
 
-function BlogFourthPart({ onPost }) {
+function BlogFourthPart() {
   const [photoPreview, setPhotoPreview] = useState("");
   const [photoError, setPhotoError] = useState("");
   const [isPosting, setIsPosting] = useState(false);
@@ -52,28 +54,25 @@ function BlogFourthPart({ onPost }) {
       return;
     }
 
+    const file = data.get("profilePhoto");
+    const photoFile = file?.size ? file : null;
+    const photoProblem = photoFile ? validateImage(photoFile, 2) : "";
+    if (photoProblem) {
+      setPhotoError(photoProblem);
+      return;
+    }
+
     setIsPosting(true);
     try {
-      const file = data.get("profilePhoto");
-      let photo = "";
-
-      if (file?.size) {
-        photo = await new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = () => resolve(reader.result);
-          reader.onerror = () => reject(new Error("Photo could not be read"));
-          reader.onabort = () => reject(new Error("Photo reading was cancelled"));
-          reader.readAsDataURL(file);
-        });
-      }
-
-      onPost({ name, role, story, photo });
+      await submitTestimonial({ name, role, story, photoFile });
       form.reset();
       setPhotoPreview("");
       setPhotoError("");
-      setPostStatus("Your testimonial has been added.");
+      setPostStatus(
+        "Thank you for sharing your story! It will appear on the website after our team reviews it.",
+      );
     } catch {
-      setPostError("Could not add your testimonial. Please try again.");
+      setPostError("Could not send your testimonial. Please try again.");
     } finally {
       setIsPosting(false);
     }

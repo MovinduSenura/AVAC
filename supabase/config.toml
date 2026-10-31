@@ -1,0 +1,10 @@
+project_id = "avac"
+
+# Called by public visitors right after they submit the application form,
+# so it must not require a logged-in user. It protects itself instead
+# (each application can send emails only once, within 15 minutes).
+[functions.send-application-email]
+verify_jwt = false
+
+[functions.manage-staff]
+verify_jwt = true
