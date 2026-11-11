@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import TestimonialAvatar from "./TestimonialAvatar";
+import { fetchApprovedTestimonials } from "../lib/publicApi";
 
 const testimonialCards = [
   {
@@ -40,12 +41,35 @@ const quoteCopy =
 
 const testimonialsPerPage = 4;
 
-function BlogThirdPart({ postedTestimonials = [], currentPage = 1, onPageChange }) {
+// Alternating tint keeps the existing checkerboard look in the 2-column grid.
+const tintPattern = [false, true, true, false];
+
+function BlogThirdPart({ currentPage = 1, onPageChange }) {
   const sectionRef = useRef(null);
-  const latestCardRef = useRef(null);
   const { hash, key } = useLocation();
-  const latestTestimonialId = postedTestimonials[0]?.id;
-  const cards = [...postedTestimonials, ...testimonialCards];
+  const [savedTestimonials, setSavedTestimonials] = useState(null);
+
+  useEffect(() => {
+    let isActive = true;
+    fetchApprovedTestimonials().then((rows) => {
+      if (isActive) setSavedTestimonials(rows);
+    });
+    return () => {
+      isActive = false;
+    };
+  }, []);
+
+  // Sample cards are shown until real testimonials are approved in the admin panel.
+  const cards = savedTestimonials?.length
+    ? savedTestimonials.map((testimonial, index) => ({
+        id: testimonial.id,
+        name: testimonial.name,
+        role: testimonial.role,
+        story: testimonial.story,
+        photo: testimonial.photo_url,
+        tinted: tintPattern[index % tintPattern.length],
+      }))
+    : testimonialCards;
   const totalPages = Math.ceil(cards.length / testimonialsPerPage);
   const activePage = Math.min(Math.max(currentPage, 1), totalPages);
   const firstCardIndex = (activePage - 1) * testimonialsPerPage;
@@ -56,13 +80,6 @@ function BlogThirdPart({ postedTestimonials = [], currentPage = 1, onPageChange 
     onPageChange(page);
     sectionRef.current?.scrollIntoView({ block: "start" });
   }
-
-  useEffect(() => {
-    if (latestTestimonialId) {
-      latestCardRef.current?.scrollIntoView({ block: "center" });
-      latestCardRef.current?.focus({ preventScroll: true });
-    }
-  }, [latestTestimonialId]);
 
   useEffect(() => {
     if (hash === "#testimonials") {
@@ -91,8 +108,6 @@ function BlogThirdPart({ postedTestimonials = [], currentPage = 1, onPageChange 
           {visibleCards.map((card) => (
             <article
               key={card.id || card.name}
-              ref={card.id && card.id === latestTestimonialId ? latestCardRef : null}
-              tabIndex={-1}
               className={`min-w-0 break-words rounded-[14px] px-[22px] pb-[24px] pt-[20px] shadow-[0_16px_42px_rgba(61,47,11,0.06)] focus-visible:outline-2 focus-visible:outline-[color:var(--avac-gold)] sm:rounded-[16px] sm:px-[38px] sm:pb-[40px] sm:pt-[38px] ${
                 card.tinted ? "bg-[#F1F5EB]" : "bg-white"
               }`}

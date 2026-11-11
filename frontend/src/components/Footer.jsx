@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { isValidEmail, subscribe } from "../lib/publicApi";
 
 const serviceLinks = ["Find a Job", "Hire Talent"];
 const usefulLinks = [
@@ -13,6 +15,34 @@ const socialLinks = [
 ];
 
 function Footer() {
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [newsletterMessage, setNewsletterMessage] = useState({ text: "", isError: false });
+
+  async function handleSubscribe(event) {
+    event.preventDefault();
+    if (isSubscribing) return;
+
+    const form = event.currentTarget;
+    const email = new FormData(form).get("email").trim();
+
+    if (!isValidEmail(email)) {
+      setNewsletterMessage({ text: "Please enter a valid email address.", isError: true });
+      return;
+    }
+
+    setIsSubscribing(true);
+    setNewsletterMessage({ text: "", isError: false });
+    try {
+      await subscribe({ email, source: "newsletter" });
+      form.reset();
+      setNewsletterMessage({ text: "Thank you for subscribing!", isError: false });
+    } catch {
+      setNewsletterMessage({ text: "Could not subscribe. Please try again.", isError: true });
+    } finally {
+      setIsSubscribing(false);
+    }
+  }
+
   return (
     <footer className="bg-black px-4 pb-[24px] pt-[10px] sm:px-8">
       <div className="mx-auto max-w-[1000px] pb-[32px] pt-[28px] sm:pb-[38px] sm:pt-[32px]">
@@ -102,15 +132,23 @@ function Footer() {
               Corporate business typically refers to large-scale mansola it.
             </p> */}
 
-            <div className="mt-[24px] flex max-w-[340px] items-center overflow-hidden rounded-full border border-white/10 bg-[#151515] pl-[18px]">
+            <form
+              onSubmit={handleSubscribe}
+              noValidate
+              className="mt-[24px] flex max-w-[340px] items-center overflow-hidden rounded-full border border-white/10 bg-[#151515] pl-[18px]"
+            >
               <input
                 type="email"
+                name="email"
+                aria-label="Email address"
                 placeholder="Enter Email"
                 className="h-[52px] flex-1 bg-transparent text-[13px] text-white outline-none placeholder:text-white"
               />
               <button
-                type="button"
-                className="flex h-[54px] w-[54px] items-center justify-center rounded-full bg-[color:var(--avac-gold)] cursor-pointer"
+                type="submit"
+                disabled={isSubscribing}
+                aria-label="Subscribe"
+                className="flex h-[54px] w-[54px] items-center justify-center rounded-full bg-[color:var(--avac-gold)] cursor-pointer disabled:cursor-wait disabled:opacity-60"
               >
                 <img
                   src="/footerRocket.png"
@@ -118,7 +156,15 @@ function Footer() {
                   className="h-[13px] w-[13px] object-contain"
                 />
               </button>
-            </div>
+            </form>
+            <p
+              role="status"
+              className={`mt-[10px] text-[12px] empty:hidden ${
+                newsletterMessage.isError ? "text-red-400" : "text-[color:var(--avac-gold)]"
+              }`}
+            >
+              {newsletterMessage.text}
+            </p>
           </div>
         </div>
 
