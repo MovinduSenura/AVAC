@@ -42,7 +42,7 @@ Roles:
 
 ## 4. Emails (Gmail SMTP, free)
 
-On the Gmail account that sends the emails (currently `ashaallang@gmail.com`):
+On the Google account that sends the emails (currently `info@avaconsultants.org`, a Google Workspace mailbox):
 
 1. Turn on **2-Step Verification** (Google Account → Security).
 2. Create an **App Password** (Google Account → Security → App passwords). This gives a 16-character password.
@@ -53,9 +53,9 @@ Then deploy the functions with the [Supabase CLI](https://supabase.com/docs/guid
 npx supabase login
 npx supabase link --project-ref <your-project-ref>
 
-npx supabase secrets set GMAIL_USER=ashaallang@gmail.com GMAIL_APP_PASSWORD=<16-char app password>
+npx supabase secrets set GMAIL_USER=info@avaconsultants.org GMAIL_APP_PASSWORD=<16-char app password>
 # Optional: who receives new-application emails (comma-separated). Defaults to GMAIL_USER.
-npx supabase secrets set NOTIFY_EMAIL=ashaallang@gmail.com
+npx supabase secrets set NOTIFY_EMAIL=info@avaconsultants.org
 
 npx supabase functions deploy send-application-email --no-verify-jwt
 npx supabase functions deploy manage-staff
